@@ -36,7 +36,7 @@ entity complex_mult is
 		w_real			: in std_logic_vector(7 downto 0);
 		w_imag			: in std_logic_vector(7 downto 0);
 		out_real		: out std_logic_vector(15 downto 0);
-		out_imag		: out std_logic_vector(15 downto 0);
+		out_imag		: out std_logic_vector(15 downto 0)
 	);
 end complex_mult;
 
