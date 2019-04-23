@@ -24,22 +24,20 @@ use ieee.std_logic_arith.all;
 
 entity subtractor is
 port (
--- Inputs
-real_a, real_b, : in std_logic_vector(7 downto 0);
-img_a, img_b, : std_logic_vector(7 downto 0);
---rborrow_in : in std_logic;
---iborrow_in : in std_logic;
--- Outputs
-out_real_a  :out std_logic_vector(7 downto 0);
-out_img_a   :out std_logic_vector(7 downto 0);
---rborrow_out :out std_logic;
---iborrow_out :out std_logic;
--- Reset
-rst_in : in std_logic;
-)
-end subtractor
+	-- Inputs
+	real_a, real_b : in std_logic_vector(7 downto 0);
+	imag_a, img_b  : in std_logic_vector(7 downto 0);
 
-artitechture rtl of subtractor is
+	-- Outputs
+	out_real_a  : out std_logic_vector(7 downto 0);
+	out_img_a   : out std_logic_vector(7 downto 0);
+	-- Reset
+	rst_in : in std_logic
+);
+
+end subtractor;
+
+architecture rtl of subtractor is
 
 begin
 
@@ -47,16 +45,13 @@ process (real_a, real_b, img_a, img_b, rst_in )
 
 	begin
 		if (rst_in <= '0') then
-		out_real_a <= unsigned(real_a) - unsigned(real_b);
-		out_img_a  <= unsigned(img_a) - unsigned(img_b);
-		--rborrow_out <= ((not real_a) and ( real_b or rborrow_in)) or ( real_a and rborrow_in));
-		--iborrow_out <= ((not img_a) and ( img_b or iborrow_in)) or ( img_a and iborrow_in));
-		
-			
-			
-			
-			
-
+			out_real_a <= unsigned(real_a) - unsigned(real_b);
+			out_img_a  <= unsigned(img_a) - unsigned(img_b);
+		elsif (rst = '1') then 
+			out_real <= "00000000"; 
+			out_imag <= "00000000"; 
+		end if; 
+	end; 
  
-end process
+end process;
 

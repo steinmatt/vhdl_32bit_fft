@@ -34,10 +34,10 @@ entity single_dft is
         -- Input Ports 
         real_in                     : in in_array (0 to 1); 
         imag_in                     : in in_array (0 to 1);
-        tf_real                     : in in_array (0 to 1); 
-        tf_imag                     : in in_array (0 to 1); 
-        real_out                    : out out_array (0 to 3); 
-        real_imag                   : out out_array (0 to 3); 
+        tf_real                     : in std_logic_vector (7 downto 0); 
+        tf_imag                     : in std_logic_vector (7 downto 0); 
+        real_out                    : out out_array (0 to 1); 
+        imag_out                    : out out_array (0 to 1); 
         -- Resets 
         rst  			            : in std_logic         
         );
@@ -55,12 +55,12 @@ entity single_dft is
           tprop => 3 ns
         )
         port map (
-            real_a <= real_a, 
-            real_b <= real_b, 
-            imag_a <= imag_a, 
-            imag_b <= imag_b, 
-            out_real <= out_real_c, 
-            out_imag <= out_imag_c, 
+            real_a <= real_in(0), 
+            real_b <= real_in(1), 
+            imag_a <= imag_in(0), 
+            imag_b <= imag_in(1), 
+            out_real <= real_out(0), 
+            out_imag <= real_out(0), 
             -- Resets 
             rst <= rst
         );
@@ -70,14 +70,14 @@ entity single_dft is
           tprop => 3 ns
         )
         port map (
-            real_a <= real_a, 
-            real_b <= real_b, 
-            imag_a <= imag_a, 
-            imag_b <= imag_b, 
-            out_real <= sub_result_real, 
-            out_imag <= sub_result_imag, 
-            -- Resets 
-            rst <= rst
+            real_a        <= real_in(0),
+            real_b        <= real_in(1),
+            img_a         <= imag_in(0),
+            img_b         <= imag_in(0),
+            out_real_a    <= sub_result_real,
+            out_img_a     <= sub_result_imag,
+            -- Resets
+            rst_in        <= rst  
         );
 
         sub : entity work.multiplier(rtl) 
@@ -85,12 +85,12 @@ entity single_dft is
           tprop => 3 ns
         )
         port map (
-            real_a <= real_a, 
-            real_b <= tf_real, 
-            imag_a <= imag_a, 
-            imag_b <= tf_imag, 
-            out_real <= out_real_d, 
-            out_imag <= out_imag_d, 
+            in_real <= sub_result_real, 
+            w_real  <= tf_real, 
+            in_imag <= sub_result_imag, 
+            w_imag  <= tf_imag, 
+            out_real <= out_real(1), 
+            out_imag <= out_imag(1), 
             -- Resets 
             rst <= rst
         );
