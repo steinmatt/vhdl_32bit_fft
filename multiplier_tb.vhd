@@ -11,17 +11,19 @@
 --------------------------------------------
 library ieee;
 use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+use ieee.std_logic_unsigned.all;
 
 entity multiplier_tb is
 end multiplier_tb;
  
 architecture test of multiplier_tb is 
-    signal in_real			: in std_logic_vector(7 downto 0);
-    signal in_imag			: in std_logic_vector(7 downto 0);
-    signal w_real			: in std_logic_vector(7 downto 0);
-    signal w_imag			: in std_logic_vector(7 downto 0);
-    signal out_real		    : out std_logic_vector(15 downto 0);
-    signal out_imag		    : out std_logic_vector(15 downto 0)
+    signal in_real_s			: unsigned(7 downto 0);
+    signal in_imag_s			: unsigned(7 downto 0);
+    signal w_real_s		    	: unsigned(7 downto 0);
+    signal w_imag_s			    : unsigned(7 downto 0);
+    signal out_real_s		    : unsigned(15 downto 0);
+    signal out_imag_s		    : unsigned(15 downto 0);
 
     begin
         multiplier_tb : entity work.multiplier(rtl) 
@@ -31,17 +33,17 @@ architecture test of multiplier_tb is
             w_real   => w_real_s,
             w_imag   => w_imag_s,
             out_real => out_real_s,
-            out_imag => out_iamge_s
+            out_imag => out_imag_s
         );
     
     stim_proc : process
         begin  
+            wait for 20 ns;
             in_real_s       <= x"7E";
             in_imag_s       <= x"35";
             w_real_s        <= x"A1";
-            w_imag          <= x"57";
-            wait;
-        end;
+            w_imag_s        <= x"57";
+            wait for 20 ns;
+        end process;
     end;
-end;
 
