@@ -19,9 +19,8 @@
 
 library ieee;
 use ieee.std_logic_1164.all;
-
-library gate_lib;
-use gate_lib.resources.all;
+use ieee.numeric_std.all;
+use ieee.std_logic_unsigned.all;
 
 entity subtractor_tb is
 end subtractor_tb;
