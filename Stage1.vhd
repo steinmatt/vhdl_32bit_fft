@@ -20,41 +20,35 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.std_logic_unsigned.all;
 use ieee.std_logic_arith.all;
+use in_out_matrix.all; 
 
 
-entity Twiddle is
+entity stage1_butterfly is
 port (
--- Inputs
-input_a : in std_logic_vector(31 downto 0);
-img_a, img_b, : in std_logic_vector(7 downto 0);
-
--- Outputs
-twiddle_real_a  :out std_logic_vector(7 downto 0);
-twiddle_img_a   :out std_logic_vector(7 downto 0);
-
--- Reset
-rst_in : in std_logic;
+	-- Input Ports 
+	real_in                     : in in_array (0 to 31); 
+	imag_in                     : in in_array (0 to 31);
+	tf_real                     : in std_logic_vector (7 downto 0); 
+	tf_imag                     : in std_logic_vector (7 downto 0); 
+	real_out                    : out out_array (0 to 31); 
+	imag_out                    : out out_array (0 to 31); 
+	-- Resets 
+	rst  			            : in std_logic  
 )
-end subtractor
+end stage1_butterfly;
 
-artitechture rtl of Twiddle is
+architecture structure of stage1_butterfly is
 
 begin
 
-process (real_a, real_b, img_a, img_b, rst_in )
+	process (real_a, real_b, img_a, img_b, rst_in )
 
-	begin
-		if (rst_in <= '0') then
-		out_real_a <= unsigned(real_a) - unsigned(real_b);
-		out_img_a  <= unsigned(img_a)  - unsigned(img_b);
-		--rborrow_out <= ((not real_a) and ( real_b or rborrow_in)) or ( real_a and rborrow_in));
-		--iborrow_out <= ((not img_a) and ( img_b or iborrow_in)) or ( img_a and iborrow_in));
-		
-			
-			
-			
-			
+		begin
+				
+				
+				
+				
 
- 
-end process
-end rtl;
+	
+	end process
+end;

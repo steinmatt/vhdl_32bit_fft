@@ -25,12 +25,11 @@ use ieee.std_logic_arith.all;
 entity subtractor is
 port (
 	-- Inputs
-	real_a, real_b : in std_logic_vector(7 downto 0);
-	imag_a, img_b  : in std_logic_vector(7 downto 0);
-
+	real_a, real_b : in unsigned(7 downto 0);
+	imag_a, img_b  : in unsigned(7 downto 0);
 	-- Outputs
-	out_real_a  : out std_logic_vector(7 downto 0);
-	out_img_a   : out std_logic_vector(7 downto 0);
+	out_real_a  : out unsigned(7 downto 0);
+	out_img_a   : out unsigned(7 downto 0);
 	-- Reset
 	rst_in : in std_logic
 );
