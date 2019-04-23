@@ -33,7 +33,7 @@ entity single_dft is
     port (
         -- Input Ports 
         real_in                     : in in_array (0 to 1); 
-        imag_in                     : in in_array (0 to 1s);
+        imag_in                     : in in_array (0 to 1);
         tf_real                     : in in_array (0 to 1); 
         tf_imag                     : in in_array (0 to 1); 
         real_out                    : out out_array (0 to 3); 
