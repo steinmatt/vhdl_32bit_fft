@@ -49,16 +49,15 @@ begin
 	
 	mult : process(in_real, w_real, in_imag, w_imag)
 	begin
-		real_real <= in_real * w_real;
-		imag_imag <= in_imag * w_imag;
-		real_imag <= in_real * w_imag;
-		imag_real <= in_imag * w_real;
+		real_real <= unsigned(in_real) * unsigned(w_real);
+		imag_imag <= unsigned(in_imag) * unsigned(w_imag);
+		real_imag <= unsigned(in_real) * unsigned(w_imag);
+		imag_real <= unsigned(in_imag) * unsigned(w_real);
 	end;
 	
 	out_stream : process(real_real, imag_imag, real_imag, imag_real)
 	begin
-		out_real <= real_real - imag_imag;
-		out_imag <= real_imag + imag_real;
+		out_real <= unsigned(real_real) - unsigned(imag_imag);
+		out_imag <= unsigned(real_imag) + unsigned(imag_real);
 	end;
-
 end;
