@@ -22,7 +22,7 @@ use ieee.std_logic_unsigned.all;
 use ieee.std_logic_arith.all;
 
 
-entity Twiddle is
+entity twiddle is
 port (
 -- Inputs
 real_a, real_b, : in std_logic_vector(7 downto 0);
@@ -35,26 +35,26 @@ twiddle_img_a   :out std_logic_vector(7 downto 0);
 -- Reset
 rst_in : in std_logic;
 )
-end subtractor
+end twiddle;
 
-artitechture rtl of Twiddle is
+artitechture rtl of twiddle is
 
 begin
 
-process (real_a, real_b, img_a, img_b, rst_in )
+	process (real_a, real_b, img_a, img_b, rst_in )
 
-	begin
-		if (rst_in <= '0') then
-		out_real_a <= unsigned(real_a) - unsigned(real_b);
-		out_img_a  <= unsigned(img_a)  - unsigned(img_b);
-		--rborrow_out <= ((not real_a) and ( real_b or rborrow_in)) or ( real_a and rborrow_in));
-		--iborrow_out <= ((not img_a) and ( img_b or iborrow_in)) or ( img_a and iborrow_in));
-		
+		begin
+			if (rst_in <= '0') then
+			out_real_a <= unsigned(real_a) - unsigned(real_b);
+			out_img_a  <= unsigned(img_a)  - unsigned(img_b);
+			--rborrow_out <= ((not real_a) and ( real_b or rborrow_in)) or ( real_a and rborrow_in));
+			--iborrow_out <= ((not img_a) and ( img_b or iborrow_in)) or ( img_a and iborrow_in));
 			
-			
-			
-			
+				
+				
+				
+				
 
- 
-end process
-end rtl;
+		end; 
+	end;
+end;
