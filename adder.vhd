@@ -28,10 +28,10 @@ use ieee.std_logic_unsigned.all;
 entity adder is
 port (
 	-- Input Ports 
-	real_a, real_b  : in std_logic_vector(7 downto 0);
-	imag_a, imag_b  : in std_logic_vector(7 downto 0);
-	out_real        : out std_logic_vector(7 downto 0); 
-	out_imag        : out std_logic_vector(7 downto 0);
+	real_a, real_b  : in unsigned(7 downto 0);
+	imag_a, imag_b  : in unsigned(7 downto 0);
+	out_real        : out unsigned(7 downto 0); 
+	out_imag        : out unsigned(7 downto 0);
 	-- Resets 
 	rst  			: in std_logic 
 	

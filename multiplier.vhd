@@ -16,7 +16,6 @@
 --
 -- Outputs			: out_real -- real component of the output stream
 --					  out_imag -- imaginary component of the output stream
--- 
 --------------------------------------------
 -- Version Control   
 -- 1.0 - 2019-03-25 - Intial Version 
@@ -27,6 +26,11 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
 use ieee.std_logic_unsigned.all;
+<<<<<<< HEAD
+=======
+use.ieee.numeric_std.all;
+use in_out_matrix.all; 
+>>>>>>> 425820f5390c79a4cdc5f40d701f06c315ddaabf
 
 entity multiplier is
 	port (
