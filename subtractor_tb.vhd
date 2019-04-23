@@ -41,7 +41,7 @@ architecture test of subtractor_tb is
 begin
  
   -- instantiate the unit under test (uut)
-   FFTfullsubtractor_tb: entity work.subtractor_tb(structural) 
+   subtractor_tb: entity work.subtractor(rtl) 
    port map (
      real_a   => real_a_s,
      real_b   => real_b_s,
@@ -72,10 +72,10 @@ wait for 10 ns;
   
 	wait for 5 ns;
 	
-    real_a_s     <= x"04";
-    real_b_s     <= x"3A";
-	img_a_s      <= x"08";
-    img_b_s      <= x"1B";
+    real_a_s     <= x"3A";
+    real_b_s     <= x"04";
+	img_a_s      <= x"1B";
+    img_b_s      <= x"08";
    
 
     wait for 10 ns;

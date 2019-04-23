@@ -39,7 +39,7 @@ architecture test of adder_tb is
 begin
  
   -- instantiate the unit under test (uut)
-   FFTfullsubtractor_tb: entity work.adder_tb(structural) 
+   adder_tb: entity work.adder(rtl) 
    port map (
      real_a   => real_a_s,
      real_b   => real_b_s,
@@ -63,7 +63,7 @@ begin
    -- stimulus process
   stim_proc : process
   begin   
-    rastin_s <= '1'
+    rstin_s <= '1';
 
     wait for 10 ns;
 

@@ -26,7 +26,7 @@ entity subtractor is
 port (
 	-- Inputs
 	real_a, real_b : in unsigned(7 downto 0);
-	imag_a, img_b  : in unsigned(7 downto 0);
+	img_a, img_b  : in unsigned(7 downto 0);
 	-- Outputs
 	out_real_a  : out unsigned(7 downto 0);
 	out_img_a   : out unsigned(7 downto 0);
@@ -46,11 +46,12 @@ process (real_a, real_b, img_a, img_b, rst_in )
 		if (rst_in <= '0') then
 			out_real_a <= unsigned(real_a) - unsigned(real_b);
 			out_img_a  <= unsigned(img_a) - unsigned(img_b);
-		elsif (rst = '1') then 
-			out_real <= "00000000"; 
-			out_imag <= "00000000"; 
+		elsif (rst_in = '1') then 
+			out_real_a <= "00000000"; 
+			out_img_a <= "00000000"; 
 		end if; 
-	end; 
+	
  
 end process;
+end rtl;
 
