@@ -5,21 +5,18 @@
 -- File				: complex_mult.vhd
 -- Description		: Multiplier used to multiply input stream with twiddle factor
 -- 
--- Inputs			: sig_a -- single bit data 
--- 					  sig_b -- single bit data 
---					  in_real -- real part of the input stream
---					  in_real_carry -- carry from the real part of the input stream
---					  in_imag -- imaginary part of the input stream
---					  in_imag_carry -- carry from the imaginary part of the input stream
---					  w_real -- real component of the twiddle factor
---					  w_imag -- imaginary component of the twiddle factor
+-- Inputs			: in_real -- real component of the input
+--  				  in_imag -- imaginary component of the input
+--					  w_real  -- real component of the twiddle factor
+--					  w_imag  -- imaginary component of the twiddle factor
 --
--- Outputs			: out_real -- real component of the output stream
---					  out_imag -- imaginary component of the output stream
+-- Outputs			: out_real -- real component of the output
+--					  out_imag -- imaginary component of the output
 --------------------------------------------
 -- Version Control   
 -- 1.0 - 2019-03-25 - Intial Version 
 -- 1.1 - 2019-04-08 - vectors for input and output
+-- 2.0 - 2019-04-22 - Multiplier Tentative Final
 --------------------------------------------
 
 library ieee;

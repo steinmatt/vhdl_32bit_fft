@@ -7,7 +7,7 @@
 -- 
 --------------------------------------------
 -- Version Control   
--- 1.0 - 2019-04-22 - Intial Version 
+-- 1.0 - 2019-04-22 - Intial (and final?) Version 
 --------------------------------------------
 library ieee;
 use ieee.std_logic_1164.all;
