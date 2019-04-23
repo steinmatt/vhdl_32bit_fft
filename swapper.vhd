@@ -5,9 +5,9 @@
 -- File				: swapper.vhd
 -- Description		: Swapper used to reorder the output data stream at the end of the transform
 -- 
--- Inputs			: transform_out -- output stream 
+-- Inputs			: input_array -- input array
 --
--- Outputs			: swapped -- reordered output stream
+-- Outputs			: output_array -- reordered output array
 -- 
 --------------------------------------------
 -- Version Control   
