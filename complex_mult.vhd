@@ -43,7 +43,7 @@ end complex_mult;
 architecture rtl of complex_mult is
 
 signal real_real, imag_imag, real_imag, imag_real : std_logic_vector(15 downto 0);
-signal out_next : std_logic_vector(14 downto 7);
+-- signal out_next : std_logic_vector(14 downto 7);
 
 begin
 	
