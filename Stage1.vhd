@@ -28,8 +28,8 @@ port (
 	-- Input Ports 
 	real_in                     : in in_array (0 to 31); 
 	imag_in                     : in in_array (0 to 31);
-	tf_real                     : in std_logic_vector (7 downto 0); 
-	tf_imag                     : in std_logic_vector (7 downto 0); 
+	tf_real                     : in tf_array (7 downto 0); 
+	tf_imag                     : in tf_array (7 downto 0); 
 	real_out                    : out out_array (0 to 31); 
 	imag_out                    : out out_array (0 to 31); 
 	-- Resets 
@@ -43,13 +43,33 @@ begin
 
 	g1: for i in 0 to 16 generate
 
-		a1: entity work.adder(rtl) 
-			port map ( 	
-				a => a(i), 
+		a1 : entity work.single_dft(structural) 
+			generic map ( 
+				tprop => 3 ns
+			)
+			port map (
+				real_in                     
+       		    imag_in                     : in in_array (0 to 1);
+                tf_real                     : in std_logic_vector (7 downto 0); 
+                tf_imag                     : in std_logic_vector (7 downto 0); 
+                real_out                    : out out_array (0 to 1); 
+                imag_out                    : out out_array (0 to 1); 
+        		-- Resets 
+        		rst  			            : in std_logic 
 
-
+				real_in(0) <= real_in(i), 
+				real_in(1) <= real_in(i+16), 
+				imag_in(0) <= imag_in(i), 
+				imag_in(1) <= imag_in(i+16), 
+				tf_real()  <= imag_in(i), 
+				tf_imag()  <= imag_in(i+16), 
+				real_out(0) <= real_out(i), 
+				real_out(1) <= real_out(i+16), 
+				imag_out(0) <= imag_out(i) 
+				imag_out(1) <= imag_out(i+16) 
+				-- Resets 
+				rst <= rst
 			);
-				
 				
 				
 
