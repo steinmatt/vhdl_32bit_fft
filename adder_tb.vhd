@@ -2,8 +2,8 @@
 -- Project			: ELEC562 32 BIT FFT 
 -- Author			: Connor Cusi
 -- Date				: 2019-03-25
--- File				: subtractor_tb.vhd
--- Description		: This entity is the testbench for subtractor  
+-- File				: adder_tb.vhd
+-- Description		: This entity is the testbench for adder  
 -- 
 -- Inputs			: input_real_32a, input_img_32a -- single bit data 
 -- 					 
@@ -23,25 +23,25 @@ use ieee.std_logic_1164.all;
 library gate_lib;
 use gate_lib.resources.all;
 
-entity subtractor_tb is
-end subtractor_tb;
+entity adder_tb is
+end adder_tb;
  
-architecture test of subtractor_tb is 
+architecture test of adder_tb is 
 
  
   signal rstin_s          : std_logic;
 
-  signal real_a_s         : unsigned(7 downto 0);
-  signal real_b_s         : unsigned(7 downto 0);
-  signal img_a_s          : unsigned(7 downto 0);
-  signal img_b_s          : unsigned(7 downto 0);
-  signal out_real_a_s     : unsigned(7 downto 0);
-  signal out_img_a_s      : unsigned(7 downto 0);
+  signal real_a_s : std_logic_vector(7 downto 0);
+  signal real_b_s : std_logic_vector(7 downto 0);
+  signal img_a_s  : std_logic_vector(7 downto 0);
+  signal img_b_s  : std_logic_vector(7 downto 0);
+  signal out_real_a_s      : std_logic_vector(7 downto 0);
+  signal out_img_a_s      : std_logic_vector(7 downto 0);
   
 begin
  
   -- instantiate the unit under test (uut)
-   FFTfullsubtractor_tb: entity work.subtractor_tb(structural) 
+   FFTfullsubtractor_tb: entity work.adder_tb(structural) 
    port map (
      real_a   => real_a_s,
      real_b   => real_b_s,
@@ -65,8 +65,10 @@ begin
    -- stimulus process
   stim_proc : process
   begin   
-    rstin_s <= '1';
-wait for 10 ns;
+    rastin_s <= '1'
+
+    wait for 10 ns;
+
 
     rstin_s <= '0';
   
