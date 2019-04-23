@@ -33,7 +33,7 @@ port (
 	out_real        : out unsigned(7 downto 0); 
 	out_imag        : out unsigned(7 downto 0);
 	-- Resets 
-	rst  			: in std_logic 
+	rst_in  		: in std_logic 
 	
 	);
 end adder;
@@ -45,9 +45,9 @@ begin
 process (real_a, real_b, img_a, img_b)
 
 	begin
-		if (rst = '0') then
+		if (rst_in = '0') then
 			out_real <= unsigned(real_a) + unsigned(real_b) + unsigned(real_carry); 
-		elsif (rst = '1') then 
+		elsif (rst_in = '1') then 
 			out_real <= "00000000"; 
 			out_imag <= "00000000"; 
 		end if; 
