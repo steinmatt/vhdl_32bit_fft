@@ -47,16 +47,8 @@ begin
 			generic map ( 
 				tprop => 3 ns
 			)
-			port map (
-				real_in                     
-       		    imag_in                     : in in_array (0 to 1);
-                tf_real                     : in std_logic_vector (7 downto 0); 
-                tf_imag                     : in std_logic_vector (7 downto 0); 
-                real_out                    : out out_array (0 to 1); 
-                imag_out                    : out out_array (0 to 1); 
-        		-- Resets 
-        		rst  			            : in std_logic 
-
+			port map (	
+				
 				real_in(0) <= real_in(i), 
 				real_in(1) <= real_in(i+16), 
 				imag_in(0) <= imag_in(i), 
