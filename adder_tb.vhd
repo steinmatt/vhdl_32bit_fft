@@ -31,12 +31,12 @@ architecture test of adder_tb is
  
   signal rstin_s          : std_logic;
 
-  signal real_a_s : std_logic_vector(7 downto 0);
-  signal real_b_s : std_logic_vector(7 downto 0);
-  signal img_a_s  : std_logic_vector(7 downto 0);
-  signal img_b_s  : std_logic_vector(7 downto 0);
-  signal out_real_a_s      : std_logic_vector(7 downto 0);
-  signal out_img_a_s      : std_logic_vector(7 downto 0);
+  signal real_a_s : unsigned(7 downto 0);
+  signal real_b_s : unsigned(7 downto 0);
+  signal img_a_s  : unsigned(7 downto 0);
+  signal img_b_s  : unsigned(7 downto 0);
+  signal out_real_a_s      : unsigned(7 downto 0);
+  signal out_img_a_s      : unsigned(7 downto 0);
   
 begin
  

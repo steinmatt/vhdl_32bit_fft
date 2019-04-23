@@ -23,6 +23,7 @@ use ieee.std_logic_1164.all;
 library gate_lib;
 use gate_lib.resources.all;
 
+
 entity subtractor_tb is
 end subtractor_tb;
  
