@@ -41,10 +41,14 @@ architecture structure of stage1_butterfly is
 
 begin
 
-	process (real_a, real_b, img_a, img_b, rst_in )
+	g1: for i in 0 to 16 generate
 
-		begin
-				
+		a1: entity work.adder(rtl) 
+			port map ( 	
+				a => a(i), 
+
+
+			);
 				
 				
 				
