@@ -23,7 +23,7 @@
 library ieee; 
 use iee.std_logic_1164.all; 
 use iee.std_logic_arith.all; 
-use iee.std_logic_unsiged.all; 
+use iee.std_logic_unsigned.all; 
 use in_out_matrix.all; 
  
 --------------------------------------------
@@ -80,7 +80,7 @@ entity single_dft is
             rst_in        <= rst  
         );
 
-        sub : entity work.multiplier(rtl) 
+        mult : entity work.multiplier(rtl) 
         generic map ( 
           tprop => 3 ns
         )
