@@ -13,17 +13,18 @@
 -- Version Control   
 -- 1.0 - 2019-04-15 - Initial version
 -- 1.1 - 2019-04-22 - added array package
+-- 1.2 - 2019-04-29 - Tentative Final Version
 --------------------------------------------
 
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
-use in_out_matrix.all;
+use work.in_out_matrix.all;
 
 entity swapper is 
     port(
-        input_array         : in in_array(0 to 31);
-        out_array           : out out_array(0 to 31)
+        input_array      : in in_array(0 to 31);
+        out_array        : out out_array(0 to 31)
         );
     end swapper;
 
@@ -52,15 +53,14 @@ architecture datapath of swapper is
         out_array(20) <= input_array(5);
         out_array(21) <= input_array(21);
         out_array(22) <= input_array(13);
-        out_array(23) <= input_array(30);
+        out_array(23) <= input_array(29);
         out_array(24) <= input_array(3);
         out_array(25) <= input_array(19);
         out_array(26) <= input_array(11);
         out_array(27) <= input_array(27);
         out_array(28) <= input_array(7);
-        out_array(39) <= input_array(23);
+        out_array(29) <= input_array(23);
         out_array(30) <= input_array(15);
         out_array(31) <= input_array(31);
-    end
 end datapath;
 
