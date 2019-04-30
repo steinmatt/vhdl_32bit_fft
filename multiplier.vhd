@@ -26,10 +26,10 @@ use ieee.std_logic_signed.all;
 
 entity multiplier is
 	port (
-		in_real			: in signed(7 downto 0);
-		in_imag			: in signed(7 downto 0);
-		w_real			: in signed(7 downto 0);
-		w_imag			: in signed(7 downto 0);
+		in_real			: in signed(15 downto 0);
+		in_imag			: in signed(15 downto 0);
+		w_real			: in signed(15 downto 0);
+		w_imag			: in signed(15 downto 0);
 		out_real		: out signed(15 downto 0);
 		out_imag		: out signed(15 downto 0)
 	);
@@ -37,7 +37,8 @@ end multiplier;
 
 architecture rtl of multiplier is
 
-signal real_real, imag_imag, real_imag, imag_real : signed(15 downto 0);
+signal real_real, imag_imag, real_imag, imag_real : signed(31 downto 0);
+signal temp_real, temp_imag 					  : signed(31 downto 0); 
 
 begin
 	
@@ -51,7 +52,10 @@ begin
 	
 	out_stream : process(real_real, imag_imag, real_imag, imag_real)
 	begin
-		out_real <= real_real - imag_imag;
-		out_imag <= real_imag + imag_real;
+		temp_real <= real_real - imag_imag;
+		temp_imag <= real_imag + imag_real;
 	end process out_stream;
+
+	out_real <= temp_real(30 downto 15); 
+	out_imag <= temp_imag(30 downto 15); 
 end;
