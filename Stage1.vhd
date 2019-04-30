@@ -28,8 +28,8 @@ port (
 	-- Input Ports 
 	real_in                     : in in_array (0 to 31); 
 	imag_in                     : in in_array (0 to 31);
-	tf_real                     : in tf_array (7 downto 0); 
-	tf_imag                     : in tf_array (7 downto 0); 
+	tf_real                     : in tf_array (7 downto 0);  -- DOUBLE CHECK STRUCTURE OF TFS NEEDED 
+	tf_imag                     : in tf_array (7 downto 0);  -- DOUBLE CHECK STRUCTURE OF TFS NEEDED 
 	real_out                    : out out_array (0 to 31); 
 	imag_out                    : out out_array (0 to 31); 
 	-- Resets 
@@ -41,7 +41,7 @@ architecture structure of stage1_butterfly is
 
 begin
 
-	g1: for i in 0 to 16 generate
+	g1: for i in 0 to 15 generate
 
 		a1 : entity work.single_dft(structural) 
 			generic map ( 
@@ -49,12 +49,12 @@ begin
 			)
 			port map (	
 				
-				real_in(0) <= real_in(i), 
-				real_in(1) <= real_in(i+16), 
-				imag_in(0) <= imag_in(i), 
-				imag_in(1) <= imag_in(i+16), 
-				tf_real()  <= imag_in(i), 
-				tf_imag()  <= imag_in(i+16), 
+				real_in(0)  <= real_in(i), 
+				real_in(1)  <= real_in(i+16), 
+				imag_in(0)  <= imag_in(i), 
+				imag_in(1)  <= imag_in(i+16), 
+				tf_real	    <= tf_real(i), 				-- DOUBLE CHECK ORGANIZATION OF TF INPUTS 
+				tf_imag     <= tf_imag(i+16), 			-- DOUBLE CHECK ORGANIZATION OF TF INPUTS
 				real_out(0) <= real_out(i), 
 				real_out(1) <= real_out(i+16), 
 				imag_out(0) <= imag_out(i) 
@@ -62,9 +62,6 @@ begin
 				-- Resets 
 				rst <= rst
 			);
-				
-				
-
 	
 	end process
 end;
