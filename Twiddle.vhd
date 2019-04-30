@@ -37,6 +37,34 @@ rst_in : in std_logic;
 )
 end twiddle;
 
+constant TWR0   : integer := x"7fff";
+constant TWR1   : integer := x"7d89";
+constant TWR2   : integer := x"7641";
+constant TWR3   : integer := x"6a6d";
+constant TWR4   : integer := x"5a82";
+constant TWR5   : integer := x"471c";
+constant TWR6   : integer := x"30fb";
+constant TWR7   : integer := x"18f9";
+constant TWR8   : integer := x"0000";
+constant TWR9   : integer := x"e707";
+constant TWR10   : integer := x"cf05";
+constant TWR11   : integer := x"b8e4";
+constant TWR12   : integer := x"a57e";
+constant TWR13   : integer := x"9593";
+constant TWR14   : integer := x"89bf";
+constant TWR15   : integer := x"8277";
+
+constant TWI0   : integer := x"0000";
+constant TWI1   : integer := x"1859";
+constant TWI2   : integer := x"30fb";
+constant TWI3   : integer := x"471c";
+constant TWI4   : integer := x"5a82";
+constant TWI5   : integer := x"6a6d";
+constant TWI6   : integer := x"7641";
+constant TWI7   : integer := x"7d89";
+constant TWI2   : integer := x"7fff";
+constant TWI2   : integer := x"7d89";
+constant TWI2   : integer := x"7641";
 artitechture rtl of twiddle is
 
 begin
