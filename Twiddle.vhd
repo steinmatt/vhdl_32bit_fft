@@ -37,39 +37,40 @@ rst_in : in std_logic;
 )
 end twiddle;
 
-constant TWR0   : std_logic_vector(7 downto 0) := x"80";
-constant TWR1   : std_logic_vector(7 downto 0) := x"7E";
-constant TWR2   : std_logic_vector(7 downto 0) := x"76";
-constant TWR3   : std_logic_vector(7 downto 0) := x"6A";
-constant TWR4   : std_logic_vector(7 downto 0) := x"5B";
-constant TWR5   : std_logic_vector(7 downto 0) := x"47";
-constant TWR6   : std_logic_vector(7 downto 0) := x"31";
-constant TWR7   : std_logic_vector(7 downto 0) := x"19";
-constant TWR8   : std_logic_vector(7 downto 0) := x"00";
-constant TWR9   : std_logic_vector(7 downto 0) := x"E7";
-constant TWR10   : std_logic_vector(7 downto 0) := x"CF";
-constant TWR11   : std_logic_vector(7 downto 0) := x"B9";
-constant TWR12   : std_logic_vector(7 downto 0) := x"A5";
-constant TWR13   : std_logic_vector(7 downto 0) := x"96";
-constant TWR14   : std_logic_vector(7 downto 0) := x"8A";
-constant TWR15   : std_logic_vector(7 downto 0) := x"82";
+constant TWR0   : std_logic_vector(7 downto 0) := x"7fff";
+constant TWR1   : std_logic_vector(7 downto 0) := x"7d8a";
+constant TWR2   : std_logic_vector(7 downto 0) := x"7641";
+constant TWR3   : std_logic_vector(7 downto 0) := x"6A6d";
+constant TWR4   : std_logic_vector(7 downto 0) := x"5B82";
+constant TWR5   : std_logic_vector(7 downto 0) := x"4721";
+constant TWR6   : std_logic_vector(7 downto 0) := x"30FB";
+constant TWR7   : std_logic_vector(7 downto 0) := x"18F9";
+constant TWR8   : std_logic_vector(7 downto 0) := x"0000";
+constant TWR9   : std_logic_vector(7 downto 0) := x"E707";
+constant TWR10   : std_logic_vector(7 downto 0) := x"CF05";
+constant TWR11   : std_logic_vector(7 downto 0) := x"B8E4";
+constant TWR12   : std_logic_vector(7 downto 0) := x"A57E";
+constant TWR13   : std_logic_vector(7 downto 0) := x"9593";
+constant TWR14   : std_logic_vector(7 downto 0) := x"89BF";
+constant TWR15   : std_logic_vector(7 downto 0) := x"8279";
 
-constant TWI0   : std_logic_vector(7 downto 0) := x"00";
-constant TWI1   : std_logic_vector(7 downto 0) := x"19";
-constant TWI2   : std_logic_vector(7 downto 0) := x"31";
-constant TWI3   : std_logic_vector(7 downto 0) := x"47";
-constant TWI4   : std_logic_vector(7 downto 0) := x"5B";
-constant TWI5   : std_logic_vector(7 downto 0) := x"6A";
-constant TWI6   : std_logic_vector(7 downto 0) := x"76";
-constant TWI7   : std_logic_vector(7 downto 0) := x"7E";
-constant TWI8   : std_logic_vector(7 downto 0) := x"80";
-constant TWI9   : std_logic_vector(7 downto 0) := x"7E";
-constant TWI10   : std_logic_vector(7 downto 0) := x"76";
-constant TWI11   : std_logic_vector(7 downto 0) := x"6A";
-constant TWI12   : std_logic_vector(7 downto 0) := x"5B";
-constant TWI13   : std_logic_vector(7 downto 0) := x"47";
-constant TWI14   : std_logic_vector(7 downto 0) := x"31";
-constant TWI15   : std_logic_vector(7 downto 0) := x"19";
+constant TWI0   : std_logic_vector(7 downto 0) := x"0000";
+constant TWI1   : std_logic_vector(7 downto 0) := x"18F9";
+constant TWI2   : std_logic_vector(7 downto 0) := x"30FB";
+constant TWI3   : std_logic_vector(7 downto 0) := x"471C";
+constant TWI4   : std_logic_vector(7 downto 0) := x"5A82";
+constant TWI5   : std_logic_vector(7 downto 0) := x"6A6D";
+constant TWI6   : std_logic_vector(7 downto 0) := x"7641";
+constant TWI7   : std_logic_vector(7 downto 0) := x"7D8A";
+constant TWI8   : std_logic_vector(7 downto 0) := x"7FFF";
+constant TWI9   : std_logic_vector(7 downto 0) := x"7D8A";
+constant TWI10   : std_logic_vector(7 downto 0) := x"7641";
+constant TWI11   : std_logic_vector(7 downto 0) := x"6A6D";
+constant TWI12   : std_logic_vector(7 downto 0) := x"5A82";
+constant TWI13   : std_logic_vector(7 downto 0) := x"471C";
+constant TWI14   : std_logic_vector(7 downto 0) := x"30FB";
+constant TWI15   : std_logic_vector(7 downto 0) := x"18F9";
+
 
 artitechture rtl of twiddle is
 
