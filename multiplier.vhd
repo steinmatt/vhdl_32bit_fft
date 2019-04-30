@@ -22,22 +22,22 @@
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;
-use ieee.std_logic_unsigned.all;
+use ieee.std_logic_signed.all;
 
 entity multiplier is
 	port (
-		in_real			: in unsigned(7 downto 0);
-		in_imag			: in unsigned(7 downto 0);
-		w_real			: in unsigned(7 downto 0);
-		w_imag			: in unsigned(7 downto 0);
-		out_real		: out unsigned(15 downto 0);
-		out_imag		: out unsigned(15 downto 0)
+		in_real			: in signed(7 downto 0);
+		in_imag			: in signed(7 downto 0);
+		w_real			: in signed(7 downto 0);
+		w_imag			: in signed(7 downto 0);
+		out_real		: out signed(15 downto 0);
+		out_imag		: out signed(15 downto 0)
 	);
 end multiplier;
 
 architecture rtl of multiplier is
 
-signal real_real, imag_imag, real_imag, imag_real : unsigned(15 downto 0);
+signal real_real, imag_imag, real_imag, imag_real : signed(15 downto 0);
 
 begin
 	
