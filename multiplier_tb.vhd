@@ -18,10 +18,10 @@ entity multiplier_tb is
 end multiplier_tb;
  
 architecture test of multiplier_tb is 
-    signal in_real_s			: signed(7 downto 0);
-    signal in_imag_s			: signed(7 downto 0);
-    signal w_real_s		    	: signed(7 downto 0);
-    signal w_imag_s			    : signed(7 downto 0);
+    signal in_real_s			: signed(15 downto 0);
+    signal in_imag_s			: signed(15 downto 0);
+    signal w_real_s		    	: signed(15 downto 0);
+    signal w_imag_s			    : signed(15 downto 0);
     signal out_real_s		    : signed(15 downto 0);
     signal out_imag_s		    : signed(15 downto 0);
 
