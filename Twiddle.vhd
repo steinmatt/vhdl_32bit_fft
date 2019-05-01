@@ -31,8 +31,8 @@ twiddle_real  :out tf_array(0 to 15);
 twiddle_img   :out tf_array(0 to 15);
 
 -- Reset
-rst_in : in std_logic;
-)
+rst_in : in std_logic
+);
 end twiddle;
 
 --Real Twiddle values
@@ -98,5 +98,5 @@ begin
 			
 
 		end; 
-	end;
+	end process;
 end;
