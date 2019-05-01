@@ -1,14 +1,13 @@
 -------------------------------------------
 -- Project			: ELEC562 32 BIT FFT 
 -- Author			: Connor Cusi
--- Date				: 2019-03-25
+-- Date				: 2019-05-01
 -- File				: Twiddle.vhd
--- Description		: This entity is the memory storage for the  
+-- Description		: This entity is for pushing the table of twiddle values for the system  
 -- 
--- Inputs			: real_a, real_b -- single bit data 
--- 					  img_a, img_b   -- single bit data 
--- Outputs			: out_real_a, out_real_b -- output real 
--- 					: out_img_a, out_img_b -- output img
+-- Outputs			: twiddle_real table for Real  
+-- 					  twiddle_img table for Imaginary 
+
 -- Reset			: Rst_in
 --------------------------------------------
 -- Version Control   
@@ -36,6 +35,7 @@ rst_in : in std_logic;
 )
 end twiddle;
 
+--Real Twiddle values
 constant TWR0   : signed(7 downto 0) := x"7fff";
 constant TWR1   : signed(7 downto 0) := x"7d8a";
 constant TWR2   : signed(7 downto 0) := x"7641";
@@ -53,6 +53,10 @@ constant TWR13   : signed(7 downto 0) := x"9593";
 constant TWR14   : signed(7 downto 0) := x"89BF";
 constant TWR15   : signed(7 downto 0) := x"8279";
 
+--RESET constant
+constant MAL	 : signed(7 downto 0) := x"0000";
+
+--Imaginary Twiddle factors
 constant TWI0   : signed(7 downto 0) := x"0000";
 constant TWI1   : signed(7 downto 0) := x"18F9";
 constant TWI2   : signed(7 downto 0) := x"30FB";
@@ -79,15 +83,19 @@ begin
 
 		begin
 			if (rst_in <= '0') then
-			out_real_a <= signed(real_a) - signed(real_b);
-			out_img_a  <= signed(img_a)  - signed(img_b);
-			--rborrow_out <= ((not real_a) and ( real_b or rborrow_in)) or ( real_a and rborrow_in));
-			--iborrow_out <= ((not img_a) and ( img_b or iborrow_in)) or ( img_a and iborrow_in));
+				twiddle_real <= (TWR0, TWR1, TWR2, TWR3, TWR4, TWR5, TWR6, TWR7, TWR8, TWR9, TWR10,
+								 TWR11, TWR12, TWR13, TWR14, TWR15) ;
+				twiddle_img  <= (TWI0, TWI1, TWI2, TWI3, TWI4, TWI5, TWI6, TWI7, TWI8, TWI9, TWI10,
+								 TWI11, TWI12, TWI13, TWI14, TWI15) ;
+			elsif (rst_in <= '0') then
 			
-				
-				
-				
-				
+				twiddle_real <= (MAL, MAL, MAL, MAL, MAL, MAL, MAL, MAL, MAL, MAL, MAL, MAL, MAL,
+								 MAL, MAL, MAL)
+				twiddle_img  <= (MAL, MAL, MAL, MAL, MAL, MAL, MAL, MAL, MAL, MAL, MAL, MAL, MAL,
+								 MAL, MAL, MAL)	;
+			end if;			  
+			
+			
 
 		end; 
 	end;
