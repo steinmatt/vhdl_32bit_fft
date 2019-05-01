@@ -34,7 +34,6 @@ port (
 	out_img_a        : out signed(15 downto 0);
 	-- Resets 
 	rst_in  		 : in std_logic 
-	
 	);
 end adder;
 	

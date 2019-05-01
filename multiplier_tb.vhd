@@ -39,10 +39,10 @@ architecture test of multiplier_tb is
     stim_proc : process
         begin  
             wait for 20 ns;
-            in_real_s       <= x"9E";
-            in_imag_s       <= x"35";
-            w_real_s        <= x"A1";
-            w_imag_s        <= x"57";
+            in_real_s       <= x"9E65";
+            in_imag_s       <= x"3582";
+            w_real_s        <= x"A111";
+            w_imag_s        <= x"57FA";
             wait for 20 ns;
         end process;
     end;

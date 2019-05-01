@@ -61,10 +61,10 @@ begin
   
 	  wait for 5 ns;
 	
-    real_a_s     <= x"04";
-    real_b_s     <= x"3A";
-	  img_a_s      <= x"08";
-    img_b_s      <= x"1B";
+    real_a_s     <= x"94AB";
+    real_b_s     <= x"8A65";
+	  img_a_s      <= x"A811";
+    img_b_s      <= x"1BFF";
    
 
     wait for 10 ns;
