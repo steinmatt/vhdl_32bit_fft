@@ -33,8 +33,8 @@ twiddle_real_a  :out std_logic_vector(7 downto 0);
 twiddle_img_a   :out std_logic_vector(7 downto 0);
 
 -- Reset
-rst_in : in std_logic;
-)
+rst_in : in std_logic
+);
 end twiddle;
 
 constant TWR0   : std_logic_vector(7 downto 0) := x"7fff";
@@ -80,8 +80,8 @@ begin
 
 		begin
 			if (rst_in <= '0') then
-			out_real_a <= unsigned(real_a) - unsigned(real_b);
-			out_img_a  <= unsigned(img_a)  - unsigned(img_b);
+			out_real_a <= signed(real_a) - signed(real_b);
+			out_img_a  <= signed(img_a)  - signed(img_b);
 			--rborrow_out <= ((not real_a) and ( real_b or rborrow_in)) or ( real_a and rborrow_in));
 			--iborrow_out <= ((not img_a) and ( img_b or iborrow_in)) or ( img_a and iborrow_in));
 			
@@ -91,5 +91,5 @@ begin
 				
 
 		end; 
-	end;
+	end process;
 end;
