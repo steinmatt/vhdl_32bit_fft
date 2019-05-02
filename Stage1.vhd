@@ -28,8 +28,8 @@ port (
 	-- Input Ports 
 	real_in                     : in in_array (0 to 31); 
 	imag_in                     : in in_array (0 to 31);
-	tf_real                     : in tf_array (7 downto 0);  -- DOUBLE CHECK STRUCTURE OF TFS NEEDED 
-	tf_imag                     : in tf_array (7 downto 0);  -- DOUBLE CHECK STRUCTURE OF TFS NEEDED 
+	tf_real                     : in tf_array (0 to 15);  -- DOUBLE CHECK STRUCTURE OF TFS NEEDED 
+	tf_imag                     : in tf_array (0 to 15);  -- DOUBLE CHECK STRUCTURE OF TFS NEEDED 
 	real_out                    : out out_array (0 to 31); 
 	imag_out                    : out out_array (0 to 31); 
 	-- Resets 
