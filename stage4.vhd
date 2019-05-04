@@ -16,7 +16,7 @@ use ieee.std_logic_arith.all;
 use in_out_matrix.all; 
 
 
-entity stage4_butterfly is
+entity stage4 is
 	port (
 		-- Input Ports 
 		real_in                     : in in_array (0 to 31); 
@@ -29,9 +29,9 @@ entity stage4_butterfly is
 		rst  			            : in std_logic; 
 		clk							: in std_logic 
 	); 
-end stage4_butterfly;
+end stage4;
 
-architecture structural of stage4_butterfly is
+architecture structural of stage4 is
 
 begin
 
