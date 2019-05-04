@@ -34,22 +34,35 @@ entity single_dft is
         -- Input Ports 
         real_in                     : in in_array (0 to 1); 
         imag_in                     : in in_array (0 to 1);
-        tf_real                     : in std_logic_vector (7 downto 0); 
-        tf_imag                     : in std_logic_vector (7 downto 0); 
+        tf_real                     : in std_logic_vector (15 downto 0); 
+        tf_imag                     : in std_logic_vector (15 downto 0); 
         real_out                    : out out_array (0 to 1); 
         imag_out                    : out out_array (0 to 1); 
         -- Resets 
-        rst  			            : in std_logic         
+        rst  			            : in std_logic ; 
+        clk                         : in std_logic         
         );
     end single_dft;
         
     architecture structural of single_dft is
  
-        signal sub_result_real        : std_logic_vector(7 downto 0); 
-        signal sub_result_imag        : std_logic_vector(7 downto 0); 
+        signal add_result_real        : std_logic_vector(15 downto 0); 
+        signal add_memory_real        : std_logic_vector(15 downto 0); 
+        signal add_result_imag        : std_logic_vector(15 downto 0); 
+        signal add_memory_imag        : std_logic_vector(15 downto 0); 
+
+        signal sub_result_real        : std_logic_vector(15 downto 0); 
+        signal sub_memory_real        : std_logic_vector(15 downto 0); 
+        signal mul_result_real        : std_logic_vector(15 downto 0); 
+        
+        signal sub_result_imag        : std_logic_vector(15 downto 0); 
+        signal sub_memory_imag        : std_logic_vector(15 downto 0); 
+        signal mul_result_imag        : std_logic_vector(15 downto 0);  
 
     begin
-    
+        -------------------------------------------------------
+        -- ADDING STRUCTURE 
+
         add : entity work.adder(rtl) 
         generic map ( 
           tprop => 3 ns
@@ -59,11 +72,58 @@ entity single_dft is
             real_b <= real_in(1), 
             imag_a <= imag_in(0), 
             imag_b <= imag_in(1), 
-            out_real <= real_out(0), 
-            out_imag <= real_out(0), 
+            out_real <= add_result_real,
+            out_imag <= add_result_imag, 
             -- Resets 
             rst <= rst
         );
+
+        add_mem1_real : entity work.memregister(structural) 
+        generic map ( 
+            tprop => 3 ns
+        )
+        port map ( 
+            rst_in  <= rst,
+            clk     <= clk, 
+            dataIn  <= add_result_real,  
+            dataOut <= add_memory_real
+        )
+
+        add_mem1_imag : entity work.memregister(structural) 
+        generic map ( 
+            tprop => 3 ns
+        )
+        port map ( 
+            rst_in  <= rst,
+            clk     <= clk, 
+            dataIn  <= add_result_imag,  
+            dataOut <= add_memory_imag
+        )
+
+        add_mem2_real : entity work.memregister(structural) 
+        generic map ( 
+            tprop => 3 ns
+        )
+        port map ( 
+            rst_in  <= rst,
+            clk     <= clk, 
+            dataIn  <= add_memory_real,  
+            dataOut <= out_real(0)
+        )
+
+        add_mem2_imag : entity work.memregister(structural) 
+        generic map ( 
+            tprop => 3 ns
+        )
+        port map ( 
+            rst_in  <= rst,
+            clk     <= clk, 
+            dataIn  <= add_memory_imag,  
+            dataOut <= out_imag(0)
+        )
+
+        -------------------------------------------------------
+        -- SUBTRACTION AND MULTIPLICATION STRUCTURE 
 
         sub : entity work.subtactor(rtl) 
         generic map ( 
@@ -80,20 +140,64 @@ entity single_dft is
             rst_in        <= rst  
         );
 
+        sub_mem1_real : entity work.memregister(structural) 
+        generic map ( 
+            tprop => 3 ns
+        )
+        port map ( 
+            rst_in  <= rst,
+            clk     <= clk, 
+            dataIn  <= sub_result_real,  
+            dataOut <= sub_memory_real
+        )
+
+        sub_mem1_imag : entity work.memregister(structural) 
+        generic map ( 
+            tprop => 3 ns
+        )
+        port map ( 
+            rst_in  <= rst,
+            clk     <= clk, 
+            dataIn  <= sub_result_imag,  
+            dataOut <= sub_memory_imag
+        )
+
         mult : entity work.multiplier(rtl) 
         generic map ( 
           tprop => 3 ns
         )
         port map (
-            in_real <= sub_result_real, 
+            in_real <= sub_memory_real, 
             w_real  <= tf_real, 
-            in_imag <= sub_result_imag, 
+            in_imag <= sub_memory_imag, 
             w_imag  <= tf_imag, 
-            out_real <= out_real(1), 
-            out_imag <= out_imag(1), 
+            out_real <= mul_result_real, 
+            out_imag <= mul_result_imag, 
             -- Resets 
             rst <= rst
         );
+
+        sub_mem2_real : entity work.memregister(structural) 
+        generic map ( 
+            tprop => 3 ns
+        )
+        port map ( 
+            rst_in  <= rst,
+            clk     <= clk, 
+            dataIn  <= mul_result_real,  
+            dataOut <= out_real(1)
+        )
+
+        sub_mem2_imag : entity work.memregister(structural) 
+        generic map ( 
+            tprop => 3 ns
+        )
+        port map ( 
+            rst_in  <= rst,
+            clk     <= clk, 
+            dataIn  <= mul_result_imag,  
+            dataOut <= out_imag(1)
+        )
                 
 
     end structural ;
