@@ -7,7 +7,9 @@
 -- 
 --------------------------------------------
 -- Version Control   
--- 1.0 - 2019-04-22 - Intial (and final?) Version 
+-- 1.0 - 2019-04-22 - Intial (and final?) Version
+-- 1.1 - 2019-04-29 - Changed data types to signed
+-- 1.2 - 2019-05-04 - Tentative Final Version 
 --------------------------------------------
 library ieee;
 use ieee.std_logic_1164.all;
@@ -39,7 +41,7 @@ architecture test of multiplier_tb is
     stim_proc : process
         begin  
             wait for 20 ns;
-            in_real_s       <= x"9E65";
+            in_real_s       <= x"f000";
             in_imag_s       <= x"3582";
             w_real_s        <= x"A111";
             w_imag_s        <= x"57FA";

@@ -13,7 +13,7 @@
 --------------------------------------------
 -- Version Control   
 -- 1.0 - 2019-03-25 - Intial Version 
--- 1.1 
+-- 1.1 - 2019-05-04 - Tentative Final Version 
 --------------------------------------------
 
 
@@ -63,8 +63,8 @@ begin
 	
     real_a_s     <= x"9B81";
     real_b_s     <= x"FACE";
-	  img_a_s      <= x"CDEA";
-    img_b_s      <= x"7FED";
+	img_a_s      <= x"CDEA";
+    img_b_s      <= x"FFED";
    
 
     wait for 10 ns;

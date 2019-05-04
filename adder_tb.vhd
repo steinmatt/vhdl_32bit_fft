@@ -13,7 +13,7 @@
 --------------------------------------------
 -- Version Control   
 -- 1.0 - 2019-03-25 - Intial Version 
--- 1.1 
+-- 1.1 - 2019-05-04 - Tentative Final Version
 --------------------------------------------
 
 library ieee;
@@ -61,9 +61,9 @@ begin
   
 	  wait for 5 ns;
 	
-    real_a_s     <= x"94AB";
-    real_b_s     <= x"8A65";
-	  img_a_s      <= x"A811";
+    real_a_s     <= x"9001";
+    real_b_s     <= x"FF0A";
+	img_a_s      <= x"A811";
     img_b_s      <= x"1BFF";
    
 
