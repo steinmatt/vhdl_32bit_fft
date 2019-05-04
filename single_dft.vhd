@@ -17,7 +17,8 @@
 --------------------------------------------------------------------------------
 -- Version Control   
 -- 1.0 - 2019-04-06 - Intial Version 
--- 1.1 - 2019-04-07 - 
+-- 1.1 - 2019-05-03 - Ready for testing
+-- 1.2 - 2019-05-04 -  
 --------------------------------------------------------------------------------
 
 library ieee; 
@@ -72,13 +73,13 @@ entity single_dft is
             real_b => real_in(1), 
             imag_a => imag_in(0), 
             imag_b => imag_in(1), 
-            out_real => add_result_real,
-            out_imag => add_result_imag, 
+            out_real_a => add_result_real,
+            out_img_a => add_result_imag, 
             -- Resets 
             rst => rst
         );
 
-        add_mem1_real : entity work.memregister(structural) 
+        add_mem1_real : entity work.memregister(rtl) 
         generic map ( 
             tprop => 3 ns
         )
@@ -89,7 +90,7 @@ entity single_dft is
             dataOut => add_memory_real
         );
 
-        add_mem1_imag : entity work.memregister(structural) 
+        add_mem1_imag : entity work.memregister(rtl) 
         generic map ( 
             tprop => 3 ns
         )
@@ -100,7 +101,7 @@ entity single_dft is
             dataOut => add_memory_imag
         );
 
-        add_mem2_real : entity work.memregister(structural) 
+        add_mem2_real : entity work.memregister(rtl) 
         generic map ( 
             tprop => 3 ns
         )
@@ -108,10 +109,10 @@ entity single_dft is
             rst_in  => rst,
             clk     => clk, 
             dataIn  => add_memory_real,  
-            dataOut => out_real(0)
+            dataOut => real_out(0)
         );
 
-        add_mem2_imag : entity work.memregister(structural) 
+        add_mem2_imag : entity work.memregister(rtl) 
         generic map ( 
             tprop => 3 ns
         )
@@ -119,7 +120,7 @@ entity single_dft is
             rst_in  => rst,
             clk     => clk, 
             dataIn  => add_memory_imag,  
-            dataOut => out_imag(0)
+            dataOut => imag_out(0)
         );
 
         -------------------------------------------------------
@@ -133,14 +134,14 @@ entity single_dft is
             real_a        => real_in(0),
             real_b        => real_in(1),
             img_a         => imag_in(0),
-            img_b         => imag_in(0),
+            img_b         => imag_in(1),
             out_real_a    => sub_result_real,
             out_img_a     => sub_result_imag,
             -- Resets
             rst_in        => rst  
         );
 
-        sub_mem1_real : entity work.memregister(structural) 
+        sub_mem1_real : entity work.memregister(rtl) 
         generic map ( 
             tprop => 3 ns
         )
@@ -151,7 +152,7 @@ entity single_dft is
             dataOut => sub_memory_real
         );
 
-        sub_mem1_imag : entity work.memregister(structural) 
+        sub_mem1_imag : entity work.memregister(rtl) 
         generic map ( 
             tprop => 3 ns
         )
@@ -177,7 +178,7 @@ entity single_dft is
             rst => rst
         );
 
-        mult_mem2_real : entity work.memregister(structural) 
+        mult_mem2_real : entity work.memregister(rtl) 
         generic map ( 
             tprop => 3 ns
         )
@@ -185,10 +186,10 @@ entity single_dft is
             rst_in  => rst,
             clk     => clk, 
             dataIn  => mul_result_real,  
-            dataOut => out_real(1)
+            dataOut => real_out(1)
         );
 
-        mult_mem2_imag : entity work.memregister(structural) 
+        mult_mem2_imag : entity work.memregister(rtl) 
         generic map ( 
             tprop => 3 ns
         )
@@ -196,7 +197,7 @@ entity single_dft is
             rst_in  => rst,
             clk     => clk, 
             dataIn  => mul_result_imag,  
-            dataOut => out_imag(1)
+            dataOut => imag_out(1)
         );
                 
 

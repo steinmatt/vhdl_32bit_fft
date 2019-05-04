@@ -15,22 +15,10 @@ use ieee.std_logic_arith.all;
 use in_out_matrix.all; 
 
 
-entity stage1_butterfly is
-	port (
-		-- Input Ports 
-		real_in                     : in in_array (0 to 31); 
-		imag_in                     : in in_array (0 to 31);
-		tf_real                     : in tf_array (0 to 15);  -- DOUBLE CHECK STRUCTURE OF TFS NEEDED 
-		tf_imag                     : in tf_array (0 to 15);  -- DOUBLE CHECK STRUCTURE OF TFS NEEDED 
-		real_out                    : out out_array (0 to 31); 
-		imag_out                    : out out_array (0 to 31); 
-		-- Resets 
-		rst  			            : in std_logic;  
-		clk							: in std_logic 
-	);
-	end stage1_butterfly;
+entity stage1 is
+end stage1;
 
-architecture structural of stage1_butterfly is
+architecture structural of stage1 is
 
 begin
 

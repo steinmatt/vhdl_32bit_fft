@@ -42,7 +42,7 @@ architecture test of stage1_tb is
     constant clock_period           : time := 10 ns; 
 
     begin
-        stage1_tb : entity work.stage1(datapath)
+        stage1_tb : entity work.stage1(structural)
         port map(
             real_in => real_in_s, 
             imag_in => imag_in_s, 
