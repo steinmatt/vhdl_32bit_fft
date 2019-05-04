@@ -34,9 +34,9 @@ architecture test of swapper_tb is
     stim_proc : process
         begin
             wait for 20 ns;
-            input_array_s <= (x"fe",x"ef",x"78",x"8e",x"35",x"17",x"ab",x"a1",x"57",x"22",x"31",
-            x"c8",x"1f",x"3d",x"ff",x"fd",x"dc",x"d8",x"d4",x"4d",x"3d",x"89",x"46",x"a9",x"cf",
-            x"d6",x"94",x"9c",x"4c",x"55",x"69",x"42");
+            input_array_s <= (x"fe73",x"ef12",x"7832",x"8e11",x"3500",x"17ff",x"abfe",x"a1bc",x"57de",x"22aa",x"31bb",
+            x"c8b9",x"1f0b",x"3db7",x"fbf2",x"fd1e",x"dc99",x"d877",x"d466",x"4d43",x"3d11",x"8119",x"4116",x"a339",x"cfcc",
+            x"d625",x"947c",x"9c2b",x"4ca3",x"55aa",x"6932",x"42be");
             wait for 20 ns;
         end process;
     end test;

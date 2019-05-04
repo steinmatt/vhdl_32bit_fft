@@ -22,15 +22,14 @@ use ieee.std_logic_arith.all;
 use work.in_out_matrix.all;
 
 entity Twiddle is
-port (
--- Inputs
+	port (
+		
+	-- Outputs
+	twiddle_real  :out tf_array(0 to 15);
+	twiddle_img   :out tf_array(0 to 15)
 
--- Outputs
-twiddle_real  :out tf_array(0 to 15);
-twiddle_img   :out tf_array(0 to 15)
 
-
-);
+	);
 end Twiddle;
 
 
@@ -38,6 +37,7 @@ end Twiddle;
 
 architecture datapath of Twiddle is
 
+	-- FOR REFERENCE PURPOSES ONLY 
 --constant TWR0   : signed(7 downto 0) := x"7fff";
 --constant TWR1   : signed(7 downto 0) := x"7d8a";
 --constant TWR2   : signed(7 downto 0) := x"7641";
@@ -75,12 +75,10 @@ architecture datapath of Twiddle is
 --constant TWI13   : signed(7 downto 0) := x"471C";
 --constant TWI14   : signed(7 downto 0) := x"30FB";
 --constant TWI15   : signed(7 downto 0) := x"18F9";
+	-- END REFERENCE TWIDDLE CONSTANTS 
 
-
-
-
-begin
-				twiddle_real <= ( x"7fff", x"7d8a", x"7641", x"6A6d", x"5B82", x"4721", x"30FB", x"18F9", x"0000", x"E707", x"CF05", x"B8E4", x"A57E", x"9593", x"89BF", x"8279") ;
-				twiddle_img  <= ( x"0000", x"18F9", x"30FB", x"471C", x"5A82", x"6A6D", x"7641", x"7D8A", x"7FFF", x"7D8A", x"7641", x"6A6D", x"5A82", x"471C", x"30FB", x"18F9") ;
+	begin
+		twiddle_real <= ( x"7fff", x"7d8a", x"7641", x"6A6d", x"5B82", x"4721", x"30FB", x"18F9", x"0000", x"E707", x"CF05", x"B8E4", x"A57E", x"9593", x"89BF", x"8279") ;
+		twiddle_img  <= ( x"0000", x"18F9", x"30FB", x"471C", x"5A82", x"6A6D", x"7641", x"7D8A", x"7FFF", x"7D8A", x"7641", x"6A6D", x"5A82", x"471C", x"30FB", x"18F9") ;
 				
 end datapath;

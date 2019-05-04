@@ -39,7 +39,7 @@ entity single_dft is
         real_out                    : out out_array (0 to 1); 
         imag_out                    : out out_array (0 to 1); 
         -- Resets 
-        rst  			            : in std_logic ; 
+        rst  			            : in std_logic; 
         clk                         : in std_logic         
         );
     end single_dft;
@@ -87,7 +87,7 @@ entity single_dft is
             clk     <= clk, 
             dataIn  <= add_result_real,  
             dataOut <= add_memory_real
-        )
+        );
 
         add_mem1_imag : entity work.memregister(structural) 
         generic map ( 
@@ -98,7 +98,7 @@ entity single_dft is
             clk     <= clk, 
             dataIn  <= add_result_imag,  
             dataOut <= add_memory_imag
-        )
+        );
 
         add_mem2_real : entity work.memregister(structural) 
         generic map ( 
@@ -109,7 +109,7 @@ entity single_dft is
             clk     <= clk, 
             dataIn  <= add_memory_real,  
             dataOut <= out_real(0)
-        )
+        );
 
         add_mem2_imag : entity work.memregister(structural) 
         generic map ( 
@@ -120,7 +120,7 @@ entity single_dft is
             clk     <= clk, 
             dataIn  <= add_memory_imag,  
             dataOut <= out_imag(0)
-        )
+        );
 
         -------------------------------------------------------
         -- SUBTRACTION AND MULTIPLICATION STRUCTURE 
@@ -149,7 +149,7 @@ entity single_dft is
             clk     <= clk, 
             dataIn  <= sub_result_real,  
             dataOut <= sub_memory_real
-        )
+        );
 
         sub_mem1_imag : entity work.memregister(structural) 
         generic map ( 
@@ -160,7 +160,7 @@ entity single_dft is
             clk     <= clk, 
             dataIn  <= sub_result_imag,  
             dataOut <= sub_memory_imag
-        )
+        );
 
         mult : entity work.multiplier(rtl) 
         generic map ( 
@@ -186,7 +186,7 @@ entity single_dft is
             clk     <= clk, 
             dataIn  <= mul_result_real,  
             dataOut <= out_real(1)
-        )
+        );
 
         sub_mem2_imag : entity work.memregister(structural) 
         generic map ( 
@@ -197,7 +197,7 @@ entity single_dft is
             clk     <= clk, 
             dataIn  <= mul_result_imag,  
             dataOut <= out_imag(1)
-        )
+        );
                 
 
     end structural ;
