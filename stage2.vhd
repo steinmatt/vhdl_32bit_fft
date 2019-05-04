@@ -43,19 +43,19 @@ begin
 				)
 				port map (	
 					
-					real_in(0) <= real_in(i), 
-					real_in(1) <= real_in(i+8), 
-					imag_in(0) <= imag_in(i), 
-					imag_in(1) <= imag_in(i+8), 
-					tf_real()  <= tf_real(i), 
-					tf_imag()  <= tf_imag(i+8), 
-					real_out(0) <= real_out(i), 
-					real_out(1) <= real_out(i+8), 
-					imag_out(0) <= imag_out(i),  
-					imag_out(1) <= imag_out(i+8),  
+					real_in(0) => real_in(i), 
+					real_in(1) => real_in(i+8), 
+					imag_in(0) => imag_in(i), 
+					imag_in(1) => imag_in(i+8), 
+					tf_real()  => tf_real(i), 
+					tf_imag()  => tf_imag(i+8), 
+					real_out(0) => real_out(i), 
+					real_out(1) => real_out(i+8), 
+					imag_out(0) => imag_out(i),  
+					imag_out(1) => imag_out(i+8),  
 					-- Resets 
-					rst <= rst, 
-					clk <= clk
+					rst => rst, 
+					clk => clk
 				);
 		end generate g1; 
 	
@@ -67,19 +67,19 @@ begin
 				)
 				port map (	
 					
-					real_in(0) <= real_in(i), 
-					real_in(1) <= real_in(i+8), 
-					imag_in(0) <= imag_in(i), 
-					imag_in(1) <= imag_in(i+8), 
-					tf_real()  <= tf_real(i), 
-					tf_imag()  <= tf_imag(i+8), 
-					real_out(0) <= real_out(i), 
-					real_out(1) <= real_out(i+8), 
-					imag_out(0) <= imag_out(i), 
-					imag_out(1) <= imag_out(i+8), 
+					real_in(0) => real_in(i), 
+					real_in(1) => real_in(i+8), 
+					imag_in(0) => imag_in(i), 
+					imag_in(1) => imag_in(i+8), 
+					tf_real()  => tf_real(i), 
+					tf_imag()  => tf_imag(i+8), 
+					real_out(0) => real_out(i), 
+					real_out(1) => real_out(i+8), 
+					imag_out(0) => imag_out(i), 
+					imag_out(1) => imag_out(i+8), 
 					-- Resets 
-					rst <= rst, 
-					clk <= clk
+					rst => rst, 
+					clk => clk
 				);
 		end generate g2; 
 	

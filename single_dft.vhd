@@ -68,14 +68,14 @@ entity single_dft is
           tprop => 3 ns
         )
         port map (
-            real_a <= real_in(0), 
-            real_b <= real_in(1), 
-            imag_a <= imag_in(0), 
-            imag_b <= imag_in(1), 
-            out_real <= add_result_real,
-            out_imag <= add_result_imag, 
+            real_a => real_in(0), 
+            real_b => real_in(1), 
+            imag_a => imag_in(0), 
+            imag_b => imag_in(1), 
+            out_real => add_result_real,
+            out_imag => add_result_imag, 
             -- Resets 
-            rst <= rst
+            rst => rst
         );
 
         add_mem1_real : entity work.memregister(structural) 
@@ -83,10 +83,10 @@ entity single_dft is
             tprop => 3 ns
         )
         port map ( 
-            rst_in  <= rst,
-            clk     <= clk, 
-            dataIn  <= add_result_real,  
-            dataOut <= add_memory_real
+            rst_in  => rst,
+            clk     => clk, 
+            dataIn  => add_result_real,  
+            dataOut => add_memory_real
         );
 
         add_mem1_imag : entity work.memregister(structural) 
@@ -94,10 +94,10 @@ entity single_dft is
             tprop => 3 ns
         )
         port map ( 
-            rst_in  <= rst,
-            clk     <= clk, 
-            dataIn  <= add_result_imag,  
-            dataOut <= add_memory_imag
+            rst_in  => rst,
+            clk     => clk, 
+            dataIn  => add_result_imag,  
+            dataOut => add_memory_imag
         );
 
         add_mem2_real : entity work.memregister(structural) 
@@ -105,10 +105,10 @@ entity single_dft is
             tprop => 3 ns
         )
         port map ( 
-            rst_in  <= rst,
-            clk     <= clk, 
-            dataIn  <= add_memory_real,  
-            dataOut <= out_real(0)
+            rst_in  => rst,
+            clk     => clk, 
+            dataIn  => add_memory_real,  
+            dataOut => out_real(0)
         );
 
         add_mem2_imag : entity work.memregister(structural) 
@@ -116,10 +116,10 @@ entity single_dft is
             tprop => 3 ns
         )
         port map ( 
-            rst_in  <= rst,
-            clk     <= clk, 
-            dataIn  <= add_memory_imag,  
-            dataOut <= out_imag(0)
+            rst_in  => rst,
+            clk     => clk, 
+            dataIn  => add_memory_imag,  
+            dataOut => out_imag(0)
         );
 
         -------------------------------------------------------
@@ -130,14 +130,14 @@ entity single_dft is
           tprop => 3 ns
         )
         port map (
-            real_a        <= real_in(0),
-            real_b        <= real_in(1),
-            img_a         <= imag_in(0),
-            img_b         <= imag_in(0),
-            out_real_a    <= sub_result_real,
-            out_img_a     <= sub_result_imag,
+            real_a        => real_in(0),
+            real_b        => real_in(1),
+            img_a         => imag_in(0),
+            img_b         => imag_in(0),
+            out_real_a    => sub_result_real,
+            out_img_a     => sub_result_imag,
             -- Resets
-            rst_in        <= rst  
+            rst_in        => rst  
         );
 
         sub_mem1_real : entity work.memregister(structural) 
@@ -145,10 +145,10 @@ entity single_dft is
             tprop => 3 ns
         )
         port map ( 
-            rst_in  <= rst,
-            clk     <= clk, 
-            dataIn  <= sub_result_real,  
-            dataOut <= sub_memory_real
+            rst_in  => rst,
+            clk     => clk, 
+            dataIn  => sub_result_real,  
+            dataOut => sub_memory_real
         );
 
         sub_mem1_imag : entity work.memregister(structural) 
@@ -156,10 +156,10 @@ entity single_dft is
             tprop => 3 ns
         )
         port map ( 
-            rst_in  <= rst,
-            clk     <= clk, 
-            dataIn  <= sub_result_imag,  
-            dataOut <= sub_memory_imag
+            rst_in  => rst,
+            clk     => clk, 
+            dataIn  => sub_result_imag,  
+            dataOut => sub_memory_imag
         );
 
         mult : entity work.multiplier(rtl) 
@@ -167,14 +167,14 @@ entity single_dft is
           tprop => 3 ns
         )
         port map (
-            in_real <= sub_memory_real, 
-            w_real  <= tf_real, 
-            in_imag <= sub_memory_imag, 
-            w_imag  <= tf_imag, 
-            out_real <= mul_result_real, 
-            out_imag <= mul_result_imag, 
+            in_real => sub_memory_real, 
+            w_real  => tf_real, 
+            in_imag => sub_memory_imag, 
+            w_imag  => tf_imag, 
+            out_real => mul_result_real, 
+            out_imag => mul_result_imag, 
             -- Resets 
-            rst <= rst
+            rst => rst
         );
 
         sub_mem2_real : entity work.memregister(structural) 
@@ -182,10 +182,10 @@ entity single_dft is
             tprop => 3 ns
         )
         port map ( 
-            rst_in  <= rst,
-            clk     <= clk, 
-            dataIn  <= mul_result_real,  
-            dataOut <= out_real(1)
+            rst_in  => rst,
+            clk     => clk, 
+            dataIn  => mul_result_real,  
+            dataOut => out_real(1)
         );
 
         sub_mem2_imag : entity work.memregister(structural) 
@@ -193,10 +193,10 @@ entity single_dft is
             tprop => 3 ns
         )
         port map ( 
-            rst_in  <= rst,
-            clk     <= clk, 
-            dataIn  <= mul_result_imag,  
-            dataOut <= out_imag(1)
+            rst_in  => rst,
+            clk     => clk, 
+            dataIn  => mul_result_imag,  
+            dataOut => out_imag(1)
         );
                 
 
