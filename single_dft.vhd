@@ -177,7 +177,7 @@ entity single_dft is
             rst => rst
         );
 
-        sub_mem2_real : entity work.memregister(structural) 
+        mult_mem2_real : entity work.memregister(structural) 
         generic map ( 
             tprop => 3 ns
         )
@@ -188,7 +188,7 @@ entity single_dft is
             dataOut => out_real(1)
         );
 
-        sub_mem2_imag : entity work.memregister(structural) 
+        mult_mem2_imag : entity work.memregister(structural) 
         generic map ( 
             tprop => 3 ns
         )
