@@ -5,8 +5,8 @@ use ieee.std_logic_unsigned.all;
 
 package in_out_matrix is
     
-    TYPE in_array is ARRAY  (natural range <>) of signed(0 to 15);
-    TYPE tf_array is ARRAY  (natural range <>) of signed(0 to 15);  
-    TYPE out_array is ARRAY (natural range <>) of signed(0 to 15); 
+    TYPE in_array is ARRAY  (natural range <>) of signed(15 downto 0);
+    TYPE tf_array is ARRAY  (natural range <>) of signed(15 downto 0);  
+    TYPE out_array is ARRAY (natural range <>) of signed(15 downto 0); 
 
 end package; 
