@@ -18,15 +18,6 @@ use work.in_out_matrix.all;
 entity stage1_tb is
 end stage1_tb;
 
-        real_in                     : in in_array (0 to 31); 
-		imag_in                     : in in_array (0 to 31);
-		tf_real                     : in tf_array (0 to 15);  -- DOUBLE CHECK STRUCTURE OF TFS NEEDED 
-		tf_imag                     : in tf_array (0 to 15);  -- DOUBLE CHECK STRUCTURE OF TFS NEEDED 
-		real_out                    : out out_array (0 to 31); 
-		imag_out                    : out out_array (0 to 31); 
-		-- Resets 
-		rst  			            : in std_logic;  
-		clk							: in std_logic 
 
 architecture test of stage1_tb is 
   
