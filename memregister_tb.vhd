@@ -1,8 +1,8 @@
 -------------------------------------------
 -- Project			: ELEC562 32 BIT FFT 
 -- Author			: Connor Cusi
--- Date				: 2019-05-01
--- File				: memregister_tb.vhd
+-- Date			: 2019-05-01
+-- File		       : memregister_tb.vhd
 -- Description		: This entity is for testing memregister  
 -- 
 -- Outputs			: twiddle_real table for Real  
