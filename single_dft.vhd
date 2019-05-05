@@ -18,12 +18,12 @@
 -- Version Control   
 -- 1.0 - 2019-04-06 - Intial Version 
 -- 1.1 - 2019-05-03 - Ready for testing
--- 1.2 - 2019-05-04 -  
+-- 1.2 - 2019-05-04 - Tested but not verified
 --------------------------------------------------------------------------------
 
 library ieee; 
 use ieee.std_logic_1164.all; 
-use ieee.std_logic_arith.all; 
+use ieee.numeric_std.all;
 use ieee.std_logic_signed.all; 
 use work.in_out_matrix.all; 
  
@@ -147,7 +147,7 @@ entity single_dft is
             out_real => mul_result_real, 
             out_imag => mul_result_imag, 
             -- Resets 
-            rst => rst
+            rst_in => rst
         );
 
         mult_mem2_real : entity work.memregister(rtl)

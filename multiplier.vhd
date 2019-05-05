@@ -33,7 +33,8 @@ entity multiplier is
 		w_real			: in signed(15 downto 0);
 		w_imag			: in signed(15 downto 0);
 		out_real		: out signed(15 downto 0);
-		out_imag		: out signed(15 downto 0)
+		out_imag		: out signed(15 downto 0);
+		rst_in  		: in std_logic
 	);
 end multiplier;
 

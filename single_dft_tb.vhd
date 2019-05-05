@@ -57,7 +57,6 @@ architecture test of single_dft_tb is
             -- Thus Inputs must be less than or equal to x"07ff" 
     stim_proc : process
         begin
-            wait for 20 ns;
             rst_s <= '1'; 
             wait for 20 ns; 
             rst_s <= '0'; 
@@ -77,9 +76,6 @@ architecture test of single_dft_tb is
             imag_in_s <= (x"0001",x"0000");
             
             wait for 20 ns;
-            rst_s <= '1'; 
-            wait for 20 ns; 
-            rst_s <= '0';
             
             tf_real_s <=  ( x"7D8A");
             tf_imag_s <=  ( x"18F9");
