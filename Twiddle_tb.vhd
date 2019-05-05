@@ -2,7 +2,7 @@
 -- Project			: ELEC562 32 BIT FFT 
 -- Author			: Connor Cusi
 -- Date				: 2019-05-01
--- File				: Twiddle.vhd
+-- File				: Twiddle_tb.vhd
 -- Description		: testbench for Twiddle  
 -- 
 -- Reset			: Rst_in
