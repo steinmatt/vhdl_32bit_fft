@@ -25,8 +25,8 @@ entity Twiddle is
 	port (
 		
 	-- Outputs
-	twiddle_real  :out tf_array(0 to 15);
-	twiddle_img   :out tf_array(0 to 15)
+	twiddle_real  :out tf_array(15 downto 0);
+	twiddle_img   :out tf_array(15 downto 0)
 
 
 	);

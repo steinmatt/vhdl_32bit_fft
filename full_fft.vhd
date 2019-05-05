@@ -8,11 +8,11 @@
 --------------------------------------------
 
 
-library ieee;
-use ieee.std_logic_1164.all;
-use ieee.std_logic_unsigned.all;
-use ieee.std_logic_arith.all;
-use in_out_matrix.all; 
+library ieee; 
+use ieee.std_logic_1164.all; 
+use ieee.numeric_std.all;
+use ieee.std_logic_signed.all; 
+use work.in_out_matrix.all; 
 
 
 entity full_fft is
@@ -20,8 +20,6 @@ entity full_fft is
 		-- Input Ports 
 		real_in                     : in in_array (0 to 31); 
 		imag_in                     : in in_array (0 to 31);
-		tf_real                     : in tf_array (0 to 15);  -- DOUBLE CHECK STRUCTURE OF TFS NEEDED 
-		tf_imag                     : in tf_array (0 to 15);  -- DOUBLE CHECK STRUCTURE OF TFS NEEDED 
 		real_out                    : out out_array (0 to 31); 
 		imag_out                    : out out_array (0 to 31); 
 		-- Resets 
@@ -32,30 +30,106 @@ entity full_fft is
 
 architecture structural of full_fft is
 
+	signal tf_real 					: tf_array(15 downto 0); 
+	signal tf_imag 					: tf_array(15 downto 0);
+
+	signal stage1_real_out			: in_array(0 to 31); 
+	signal stage1_imag_out			: in_array(0 to 31); 
+
+	signal stage2_real_out			: in_array(0 to 31); 
+	signal stage2_imag_out			: in_array(0 to 31); 
+
+	signal stage3_real_out			: in_array(0 to 31); 
+	signal stage3_imag_out			: in_array(0 to 31); 
+
+	signal stage4_real_out			: in_array(0 to 31); 
+	signal stage4_imag_out			: in_array(0 to 31); 
+
+	signal stage5_real_out			: in_array(0 to 31); 
+	signal stage5_imag_out			: in_array(0 to 31); 
+
 begin
 
-	g1: for i in 0 to 15 generate
+	t1 : entity work.twiddle(datapath)
+		port map ( 
+			twiddle_real => tf_real, 
+			twiddle_iamg => tf_imag 
+		);
 
-		a1 : entity work.single_dft(structural) 
-			generic map ( 
-				tprop => 3 ns
-			)
-			port map (	
-				
-				real_in(0)  => real_in(i), 
-				real_in(1)  => real_in(i+16), 
-				imag_in(0)  => imag_in(i), 
-				imag_in(1)  => imag_in(i+16), 
-				tf_real()   => tf_real(i), 				-- DOUBLE CHECK ORGANIZATION OF TF INPUTS 
-				tf_imag()   => tf_imag(i+16), 			-- DOUBLE CHECK ORGANIZATION OF TF INPUTS
-				real_out(0) => real_out(i), 
-				real_out(1) => real_out(i+16), 
-				imag_out(0) => imag_out(i), 
-				imag_out(1) => imag_out(i+16), 
-				-- Resets 
-				rst => rst, 
-				clk => clk
-			);
-	
-	end generate g1; 
+	s1 : entity work.stage1(structural) 
+		port map (	
+			real_in  => real_in, 
+			imag_in  => imag_in, 
+			tf_real  => tf_real, 
+			tf_imag  => tf_imag, 
+			real_out => stage1_real_out, 
+			imag_out => stage1_imag_out, 
+			-- Resets 
+			rst => rst, 
+			clk => clk
+		);
+
+	s2 : entity work.stage2(structural) 
+		port map (	
+			real_in  => stage1_real_out, 
+			imag_in  => stage1_imag_out, 
+			tf_real  => tf_real, 
+			tf_imag  => tf_imag, 
+			real_out => stage2_real_out, 
+			imag_out => stage2_imag_out, 
+			-- Resets 
+			rst => rst, 
+			clk => clk
+		);
+
+	s3 : entity work.stage3(structural) 
+		port map (	
+			real_in  => stage2_real_out, 
+			imag_in  => stage2_imag_out, 
+			tf_real  => tf_real, 
+			tf_imag  => tf_imag, 
+			real_out => stage3_real_out, 
+			imag_out => stage3_imag_out, 
+			-- Resets 
+			rst => rst, 
+			clk => clk
+		);
+
+	s4 : entity work.stage4(structural) 
+		port map (	
+			real_in  => stage3_real_out, 
+			imag_in  => stage3_imag_out, 
+			tf_real  => tf_real, 
+			tf_imag  => tf_imag, 
+			real_out => stage4_real_out, 
+			imag_out => stage4_imag_out, 
+			-- Resets 
+			rst => rst, 
+			clk => clk
+		);
+
+	s5 : entity work.stage5(structural) 
+		port map (	
+			real_in  => stage4_real_out, 
+			imag_in  => stage4_imag_out, 
+			tf_real  => tf_real, 
+			tf_imag  => tf_imag, 
+			real_out => stage5_real_out, 
+			imag_out => stage5_imag_out, 
+			-- Resets 
+			rst => rst, 
+			clk => clk
+		);
+
+	sw1 : entity work.swapper(structural) 
+		port map (	
+			real_in  => stage5_real_out, 
+			imag_in  => stage5_imag_out, 
+			real_out => real_out, 
+			imag_out => imag_out, 
+			-- Resets 
+			rst => rst, 
+			clk => clk
+		);
+
 end structural;
