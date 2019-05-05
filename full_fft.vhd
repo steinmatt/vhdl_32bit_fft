@@ -33,28 +33,104 @@ architecture structural of full_fft is
 	signal tf_real 					: tf_array(0 to 15); 
 	signal tf_imag 					: tf_array(0 to 15);
 
+	signal stage1_real_out			: in_array(0 to 31); 
+	signal stage1_imag_out			: in_array(0 to 31); 
+
+	signal stage2_real_out			: in_array(0 to 31); 
+	signal stage2_imag_out			: in_array(0 to 31); 
+
+	signal stage3_real_out			: in_array(0 to 31); 
+	signal stage3_imag_out			: in_array(0 to 31); 
+
+	signal stage4_real_out			: in_array(0 to 31); 
+	signal stage4_imag_out			: in_array(0 to 31); 
+
+	signal stage5_real_out			: in_array(0 to 31); 
+	signal stage5_imag_out			: in_array(0 to 31); 
+
+
 begin
 
 	t1 : entity work.twiddle(datapath)
-		
 		port map ( 
 			twiddle_real => tf_real, 
 			twiddle_iamg => tf_imag 
 		);
 
-	a1 : entity work.stage1(structural) 
-		
+	s1 : entity work.stage1(structural) 
 		port map (	
 			real_in  => real_in, 
 			imag_in  => imag_in, 
 			tf_real  => tf_real, 
 			tf_imag  => tf_imag, 
-			real_out => real_out, 
-			imag_out => imag_out, 
+			real_out => stage1_real_out, 
+			imag_out => stage1_imag_out, 
 			-- Resets 
 			rst => rst, 
 			clk => clk
 		);
 
+	s2 : entity work.stage2(structural) 
+	port map (	
+		real_in  => stage1_real_out, 
+		imag_in  => stage1_imag_out, 
+		tf_real  => tf_real, 
+		tf_imag  => tf_imag, 
+		real_out => stage2_real_out, 
+		imag_out => stage2_imag_out, 
+		-- Resets 
+		rst => rst, 
+		clk => clk
+	);
+
+	s3 : entity work.stage3(structural) 
+		port map (	
+			real_in  => stage2_real_out, 
+			imag_in  => stage2_imag_out, 
+			tf_real  => tf_real, 
+			tf_imag  => tf_imag, 
+			real_out => stage3_real_out, 
+			imag_out => stage3_imag_out, 
+			-- Resets 
+			rst => rst, 
+			clk => clk
+		);
+
+	s4 : entity work.stage4(structural) 
+	port map (	
+		real_in  => stage3_real_out, 
+		imag_in  => stage3_imag_out, 
+		tf_real  => tf_real, 
+		tf_imag  => tf_imag, 
+		real_out => stage4_real_out, 
+		imag_out => stage4_imag_out, 
+		-- Resets 
+		rst => rst, 
+		clk => clk
+	);
+
+	s5 : entity work.stage5(structural) 
+	port map (	
+		real_in  => stage4_real_out, 
+		imag_in  => stage4_imag_out, 
+		tf_real  => tf_real, 
+		tf_imag  => tf_imag, 
+		real_out => stage5_real_out, 
+		imag_out => stage5_imag_out, 
+		-- Resets 
+		rst => rst, 
+		clk => clk
+	);
+
+	sw1 : entity work.swapper(structural) 
+	port map (	
+		real_in  => stage5_real_out, 
+		imag_in  => stage5_imag_out, 
+		real_out => real_out, 
+		imag_out => imag_out, 
+		-- Resets 
+		rst => rst, 
+		clk => clk
+	);
 
 end structural;

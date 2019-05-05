@@ -25,7 +25,7 @@ architecture test of swapper_tb is
     signal out_array_s           : out_array(0 to 31);
 
     begin
-        swapper_tb : entity work.swapper(datapath)
+        swapper_tb : entity work.swapper(rtl)
         port map(
             input_array  => input_array_s,
             out_array => out_array_s

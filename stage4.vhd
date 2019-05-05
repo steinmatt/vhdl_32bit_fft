@@ -13,7 +13,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.std_logic_unsigned.all;
 use ieee.std_logic_arith.all;
-use in_out_matrix.all; 
+use work.in_out_matrix.all; 
 
 
 entity stage4 is
@@ -26,8 +26,8 @@ entity stage4 is
 		real_out                    : out out_array (0 to 31); 
 		imag_out                    : out out_array (0 to 31); 
 		-- Resets 
-		rst  			            : in std_logic; 
-		clk							: in std_logic 
+		rst  			           			  : in std_logic; 
+		clk													: in std_logic 
 	); 
 end stage4;
 
@@ -38,9 +38,6 @@ begin
 		g1: for i in 0 to 1 generate
 
 			a1 : entity work.single_dft(structural) 
-				generic map ( 
-					tprop => 3 ns
-				)
 				port map (	
 					
 					real_in(0) => real_in(i), 
@@ -59,12 +56,9 @@ begin
 				);
 		end generate g1; 
 	
-    	g2: for i in 4 to 5 generate
+    g2: for i in 4 to 5 generate
 
 			a2 : entity work.single_dft(structural) 
-				generic map ( 
-					tprop => 3 ns
-				)
 				port map (	
 					
 					real_in(0) => real_in(i), 
@@ -81,14 +75,11 @@ begin
 					rst => rst, 
 					clk => clk
 				);
-        end generate g2; 
+    end generate g2; 
         
-        g3: for i in 8 to 9 generate
+    g3: for i in 8 to 9 generate
 
 			a3 : entity work.single_dft(structural) 
-				generic map ( 
-					tprop => 3 ns
-				)
 				port map (	
 					
 					real_in(0) => real_in(i), 
@@ -105,126 +96,111 @@ begin
 					rst => rst, 
 					clk => clk
 				);
-        end generate g3; 
+      end generate g3; 
 
-        g4: for i in 12 to 13 generate
+      g4: for i in 12 to 13 generate
 
-			a4 : entity work.single_dft(structural) 
-				generic map ( 
-					tprop => 3 ns
-				)
-				port map (	
-					
-					real_in(0) => real_in(i), 
-					real_in(1) => real_in(i+2), 
-					imag_in(0) => imag_in(i), 
-					imag_in(1) => imag_in(i+2), 
-					tf_real()  => tf_real(i), 
-					tf_imag()  => tf_imag(i+2), 
-					real_out(0) => real_out(i), 
-					real_out(1) => real_out(i+2), 
-					imag_out(0) => imag_out(i),  
-					imag_out(1) => imag_out(i+2),  
-					-- Resets 
-					rst => rst, 
-					clk => clk
-				);
-        end generate g4; 
+				a4 : entity work.single_dft(structural) 
+					port map (	
+						
+						real_in(0) => real_in(i), 
+						real_in(1) => real_in(i+2), 
+						imag_in(0) => imag_in(i), 
+						imag_in(1) => imag_in(i+2), 
+						tf_real()  => tf_real(i), 
+						tf_imag()  => tf_imag(i+2), 
+						real_out(0) => real_out(i), 
+						real_out(1) => real_out(i+2), 
+						imag_out(0) => imag_out(i),  
+						imag_out(1) => imag_out(i+2),  
+						-- Resets 
+						rst => rst, 
+						clk => clk
+					);
+      end generate g4; 
         
-        g5: for i in 16 to 17 generate
+      g5: for i in 16 to 17 generate
 
-			a5 : entity work.single_dft(structural) 
-				generic map ( 
-					tprop => 3 ns
-				)
-				port map (	
-					
-					real_in(0) => real_in(i), 
-					real_in(1) => real_in(i+2), 
-					imag_in(0) => imag_in(i), 
-					imag_in(1) => imag_in(i+2), 
-					tf_real()  => tf_real(i), 
-					tf_imag()  => tf_imag(i+2), 
-					real_out(0) => real_out(i), 
-					real_out(1) => real_out(i+2), 
-					imag_out(0) => imag_out(i),  
-					imag_out(1) => imag_out(i+2),  
-					-- Resets 
-					rst => rst, 
-					clk => clk
-				);
-        end generate g5; 
+				a5 : entity work.single_dft(structural) 
+					port map (	
+						
+						real_in(0) => real_in(i), 
+						real_in(1) => real_in(i+2), 
+						imag_in(0) => imag_in(i), 
+						imag_in(1) => imag_in(i+2), 
+						tf_real()  => tf_real(i), 
+						tf_imag()  => tf_imag(i+2), 
+						real_out(0) => real_out(i), 
+						real_out(1) => real_out(i+2), 
+						imag_out(0) => imag_out(i),  
+						imag_out(1) => imag_out(i+2),  
+						-- Resets 
+						rst => rst, 
+						clk => clk
+					);
+      end generate g5; 
         
-        g6: for i in 20 to 21 generate
+      g6: for i in 20 to 21 generate
 
-			a6 : entity work.single_dft(structural) 
-				generic map ( 
-					tprop => 3 ns
-				)
-				port map (	
-					
-					real_in(0) => real_in(i), 
-					real_in(1) => real_in(i+2), 
-					imag_in(0) => imag_in(i), 
-					imag_in(1) => imag_in(i+2), 
-					tf_real()  => tf_real(i), 
-					tf_imag()  => tf_imag(i+2), 
-					real_out(0) => real_out(i), 
-					real_out(1) => real_out(i+2), 
-					imag_out(0) => imag_out(i),  
-					imag_out(1) => imag_out(i+2),  
-					-- Resets 
-					rst => rst, 
-					clk => clk
-				);
-        end generate g6; 
+				a6 : entity work.single_dft(structural) 
+					port map (	
+						
+						real_in(0) => real_in(i), 
+						real_in(1) => real_in(i+2), 
+						imag_in(0) => imag_in(i), 
+						imag_in(1) => imag_in(i+2), 
+						tf_real()  => tf_real(i), 
+						tf_imag()  => tf_imag(i+2), 
+						real_out(0) => real_out(i), 
+						real_out(1) => real_out(i+2), 
+						imag_out(0) => imag_out(i),  
+						imag_out(1) => imag_out(i+2),  
+						-- Resets 
+						rst => rst, 
+						clk => clk
+					);
+      end generate g6; 
         
-        g7: for i in 24 to 25 generate
+      g7: for i in 24 to 25 generate
 
-			a7 : entity work.single_dft(structural) 
-				generic map ( 
-					tprop => 3 ns
-				)
-				port map (	
-					
-					real_in(0) => real_in(i), 
-					real_in(1) => real_in(i+2), 
-					imag_in(0) => imag_in(i), 
-					imag_in(1) => imag_in(i+2), 
-					tf_real()  => tf_real(i), 
-					tf_imag()  => tf_imag(i+2), 
-					real_out(0) => real_out(i), 
-					real_out(1) => real_out(i+2), 
-					imag_out(0) => imag_out(i),  
-					imag_out(1) => imag_out(i+2),  
-					-- Resets 
-					rst => rst, 
-					clk => clk
-				);
-        end generate g7; 
+				a7 : entity work.single_dft(structural) 
+					port map (	
+						
+						real_in(0) => real_in(i), 
+						real_in(1) => real_in(i+2), 
+						imag_in(0) => imag_in(i), 
+						imag_in(1) => imag_in(i+2), 
+						tf_real()  => tf_real(i), 
+						tf_imag()  => tf_imag(i+2), 
+						real_out(0) => real_out(i), 
+						real_out(1) => real_out(i+2), 
+						imag_out(0) => imag_out(i),  
+						imag_out(1) => imag_out(i+2),  
+						-- Resets 
+						rst => rst, 
+						clk => clk
+					);
+      end generate g7; 
         
-        g8: for i in 28 to 29 generate
+      g8: for i in 28 to 29 generate
 
-            a8 : entity work.single_dft(structural) 
-                generic map ( 
-                    tprop => 3 ns
-                )
-                port map (	
-                    
-                    real_in(0) => real_in(i), 
-                    real_in(1) => real_in(i+2), 
-                    imag_in(0) => imag_in(i), 
-                    imag_in(1) => imag_in(i+2), 
-                    tf_real()  => tf_real(i), 
-                    tf_imag()  => tf_imag(i+2), 
-                    real_out(0) => real_out(i), 
-                    real_out(1) => real_out(i+2), 
-                    imag_out(0) => imag_out(i),  
-                    imag_out(1) => imag_out(i+2),  
-                    -- Resets 
-                    rst => rst, 
-                    clk => clk
-                );
-        end generate g8; 
+					a8 : entity work.single_dft(structural) 
+							port map (	
+									
+									real_in(0) => real_in(i), 
+									real_in(1) => real_in(i+2), 
+									imag_in(0) => imag_in(i), 
+									imag_in(1) => imag_in(i+2), 
+									tf_real()  => tf_real(i), 
+									tf_imag()  => tf_imag(i+2), 
+									real_out(0) => real_out(i), 
+									real_out(1) => real_out(i+2), 
+									imag_out(0) => imag_out(i),  
+									imag_out(1) => imag_out(i+2),  
+									-- Resets 
+									rst => rst, 
+									clk => clk
+							);
+      end generate g8; 
 	
 end structural; 
