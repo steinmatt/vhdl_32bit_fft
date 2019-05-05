@@ -18,16 +18,6 @@ use work.in_out_matrix.all;
 entity stage5_tb is
 end stage5_tb;
 
-        real_in                     : in in_array (0 to 31); 
-		imag_in                     : in in_array (0 to 31);
-		tf_real                     : in tf_array (0 to 15);  -- DOUBLE CHECK STRUCTURE OF TFS NEEDED 
-		tf_imag                     : in tf_array (0 to 15);  -- DOUBLE CHECK STRUCTURE OF TFS NEEDED 
-		real_out                    : out out_array (0 to 31); 
-		imag_out                    : out out_array (0 to 31); 
-		-- Resets 
-		rst  			            : in std_logic;  
-		clk							: in std_logic 
-
 architecture test of stage5_tb is 
   
     signal real_in_s                : in_array(0 to 31); 
@@ -42,7 +32,7 @@ architecture test of stage5_tb is
     constant clock_period           : time := 10 ns; 
 
     begin
-        stage5_tb : entity work.stage5(datapath)
+        stage5_tb : entity work.stage5(structural)
         port map(
             real_in => real_in_s, 
             imag_in => imag_in_s, 
