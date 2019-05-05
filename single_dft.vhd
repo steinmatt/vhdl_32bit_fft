@@ -35,8 +35,8 @@ entity single_dft is
         -- Input Ports 
         real_in                     : in in_array (0 to 1); 
         imag_in                     : in in_array (0 to 1);
-        tf_real                     : in std_logic_vector (15 downto 0); 
-        tf_imag                     : in std_logic_vector (15 downto 0); 
+        tf_real                     : in signed(15 downto 0); 
+        tf_imag                     : in signed(15 downto 0); 
         real_out                    : out out_array (0 to 1); 
         imag_out                    : out out_array (0 to 1); 
         -- Resets 
@@ -47,18 +47,18 @@ entity single_dft is
         
     architecture structural of single_dft is
  
-        signal add_result_real        : std_logic_vector(15 downto 0); 
-        signal add_memory_real        : std_logic_vector(15 downto 0); 
-        signal add_result_imag        : std_logic_vector(15 downto 0); 
-        signal add_memory_imag        : std_logic_vector(15 downto 0); 
+        signal add_result_real        : signed(15 downto 0); 
+        signal add_memory_real        : signed(15 downto 0); 
+        signal add_result_imag        : signed(15 downto 0); 
+        signal add_memory_imag        : signed(15 downto 0); 
 
-        signal sub_result_real        : std_logic_vector(15 downto 0); 
-        signal sub_memory_real        : std_logic_vector(15 downto 0); 
-        signal mul_result_real        : std_logic_vector(15 downto 0); 
+        signal sub_result_real        : signed(15 downto 0); 
+        signal sub_memory_real        : signed(15 downto 0); 
+        signal mul_result_real        : signed(15 downto 0); 
         
-        signal sub_result_imag        : std_logic_vector(15 downto 0); 
-        signal sub_memory_imag        : std_logic_vector(15 downto 0); 
-        signal mul_result_imag        : std_logic_vector(15 downto 0);  
+        signal sub_result_imag        : signed(15 downto 0); 
+        signal sub_memory_imag        : signed(15 downto 0); 
+        signal mul_result_imag        : signed(15 downto 0);  
 
     begin
         -------------------------------------------------------

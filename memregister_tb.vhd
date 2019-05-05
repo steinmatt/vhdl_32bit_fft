@@ -12,19 +12,19 @@ ARCHITECTURE behavioral OF memregister_tb IS
  PORT(
 	    rst_in  : in  std_logic;   --configuration reset aka power up reset
         clk     : in  std_logic;
-        dataIn  : in  std_logic_vector (15 downto 0);
-        dataOut : out std_logic_vector (15 downto 0)
+        dataIn  : in  signed(15 downto 0);
+        dataOut : out signed(15 downto 0)
 
  );
  
  END COMPONENT;
  --Inputs
  signal clk_s    : std_logic ;
- signal DataIn_s : std_logic_vector(15 downto 0) ;
+ signal DataIn_s : signed(15 downto 0) ;
  signal rst_in_s : std_logic ;
 
  --Outputs
- signal DataOut_s : std_logic_vector(15 downto 0) ;
+ signal DataOut_s : signed(15 downto 0) ;
 
 BEGIN
 -- Instantiate the Unit Under Test (UUT)

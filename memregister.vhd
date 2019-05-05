@@ -6,8 +6,8 @@ entity memregister is
   
   port (rst_in  : in  std_logic;   --configuration reset aka power up reset
         clk     : in  std_logic;
-        dataIn  : in  std_logic_vector (15 downto 0);
-        dataOut : out std_logic_vector (15 downto 0)
+        dataIn  : in  signed(15 downto 0);
+        dataOut : out signed(15 downto 0)
 		);  
   
 end memregister;
