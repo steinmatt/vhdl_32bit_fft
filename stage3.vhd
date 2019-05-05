@@ -13,7 +13,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.std_logic_unsigned.all;
 use ieee.std_logic_arith.all;
-use work.in_out_matrix.all; 
+use in_out_matrix.all; 
 
 
 entity stage3 is
@@ -38,6 +38,9 @@ begin
 		g1: for i in 0 to 3 generate
 
 			a1 : entity work.single_dft(structural) 
+				generic map ( 
+					tprop => 3 ns
+				)
 				port map (	
 					
 					real_in(0) => real_in(i), 
@@ -59,6 +62,9 @@ begin
     	g2: for i in 8 to 11 generate
 
 			a2 : entity work.single_dft(structural) 
+				generic map ( 
+					tprop => 3 ns
+				)
 				port map (	
 					
 					real_in(0) => real_in(i), 
@@ -80,6 +86,9 @@ begin
         g3: for i in 16 to 19 generate
 
 			a3 : entity work.single_dft(structural) 
+				generic map ( 
+					tprop => 3 ns
+				)
 				port map (	
 					
 					real_in(0) => real_in(i), 
@@ -101,6 +110,9 @@ begin
         g4: for i in 24 to 27 generate
 
 			a4 : entity work.single_dft(structural) 
+				generic map ( 
+					tprop => 3 ns
+				)
 				port map (	
 					
 					real_in(0) => real_in(i), 

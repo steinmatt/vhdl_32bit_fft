@@ -25,7 +25,7 @@ library ieee;
 use iee.std_logic_1164.all; 
 use iee.std_logic_arith.all; 
 use iee.std_logic_unsigned.all; 
-use work.in_out_matrix.all; 
+use in_out_matrix.all; 
  
 --------------------------------------------
 -- Entity 
@@ -65,6 +65,9 @@ entity single_dft is
         -- ADDING STRUCTURE 
 
         add : entity work.adder(rtl) 
+        generic map ( 
+          tprop => 3 ns
+        )
         port map (
             real_a => real_in(0), 
             real_b => real_in(1), 
@@ -77,6 +80,9 @@ entity single_dft is
         );
 
         add_mem1_real : entity work.memregister(rtl) 
+        generic map ( 
+            tprop => 3 ns
+        )
         port map ( 
             rst_in  => rst,
             clk     => clk, 
@@ -85,6 +91,9 @@ entity single_dft is
         );
 
         add_mem1_imag : entity work.memregister(rtl) 
+        generic map ( 
+            tprop => 3 ns
+        )
         port map ( 
             rst_in  => rst,
             clk     => clk, 
@@ -93,6 +102,9 @@ entity single_dft is
         );
 
         add_mem2_real : entity work.memregister(rtl) 
+        generic map ( 
+            tprop => 3 ns
+        )
         port map ( 
             rst_in  => rst,
             clk     => clk, 
@@ -101,6 +113,9 @@ entity single_dft is
         );
 
         add_mem2_imag : entity work.memregister(rtl) 
+        generic map ( 
+            tprop => 3 ns
+        )
         port map ( 
             rst_in  => rst,
             clk     => clk, 
@@ -112,6 +127,9 @@ entity single_dft is
         -- SUBTRACTION AND MULTIPLICATION STRUCTURE 
 
         sub : entity work.subtactor(rtl) 
+        generic map ( 
+          tprop => 3 ns
+        )
         port map (
             real_a        => real_in(0),
             real_b        => real_in(1),
@@ -124,6 +142,9 @@ entity single_dft is
         );
 
         sub_mem1_real : entity work.memregister(rtl) 
+        generic map ( 
+            tprop => 3 ns
+        )
         port map ( 
             rst_in  => rst,
             clk     => clk, 
@@ -132,6 +153,9 @@ entity single_dft is
         );
 
         sub_mem1_imag : entity work.memregister(rtl) 
+        generic map ( 
+            tprop => 3 ns
+        )
         port map ( 
             rst_in  => rst,
             clk     => clk, 
@@ -140,6 +164,9 @@ entity single_dft is
         );
 
         mult : entity work.multiplier(rtl) 
+        generic map ( 
+          tprop => 3 ns
+        )
         port map (
             in_real => sub_memory_real, 
             w_real  => tf_real, 
@@ -152,6 +179,9 @@ entity single_dft is
         );
 
         mult_mem2_real : entity work.memregister(rtl) 
+        generic map ( 
+            tprop => 3 ns
+        )
         port map ( 
             rst_in  => rst,
             clk     => clk, 
@@ -160,6 +190,9 @@ entity single_dft is
         );
 
         mult_mem2_imag : entity work.memregister(rtl) 
+        generic map ( 
+            tprop => 3 ns
+        )
         port map ( 
             rst_in  => rst,
             clk     => clk, 

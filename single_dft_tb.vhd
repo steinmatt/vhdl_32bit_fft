@@ -79,9 +79,18 @@ architecture test of single_dft_tb is
             wait for 20 ns;
             rst_s <= '1'; 
             wait for 20 ns; 
-
-            real_in_s <= (x"07ff",x"07ff");
-            imag_in_s <= (x"07ff",x"07ff");
+            rst_s <= '0';
+            
+            tf_real_s <=  ( x"7D8A");
+            tf_imag_s <=  ( x"18F9");
+            
+            real_in_s <= (x"0000",x"0001");
+            imag_in_s <= (x"0000",x"0001");
+           
+            wait for 20 ns;
+                       
+            real_in_s <= (x"0001",x"0000");          
+            imag_in_s <= (x"0001",x"0000");
             
             wait for 20 ns; 
             rst_s <= '0'; 
