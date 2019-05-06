@@ -19,8 +19,8 @@ use work.in_out_matrix.all;
 entity stage5 is
 	port (
 		-- Input Ports 
-		real_in                     : in in_array (0 to 31); 
-		imag_in                     : in in_array (0 to 31);
+		real_in                     : in out_array (0 to 31); 
+		imag_in                     : in out_array (0 to 31);
 		tf_real                     : in tf_array (15 downto 0); 
 		tf_imag                     : in tf_array (15 downto 0); 
 		real_out                    : out out_array (0 to 31); 

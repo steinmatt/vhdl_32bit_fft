@@ -23,7 +23,7 @@ use work.in_out_matrix.all;
 
 entity swapper is 
     port(
-        input_array      : in in_array(0 to 31);
+        input_array      : in  out_array(0 to 31);
         out_array        : out out_array(0 to 31)
         );
     end swapper;
@@ -61,6 +61,7 @@ architecture datapath of swapper is
         out_array(28) <= input_array(7);
         out_array(29) <= input_array(23);
         out_array(30) <= input_array(15);
-        out_array(31) <= input_array(31);
+        out_array(31) <= input_array(31); 
+     
 end datapath;
 

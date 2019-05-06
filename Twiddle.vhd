@@ -16,7 +16,7 @@
 --------------------------------------------
 
 library ieee;
-use ieee.std_logic_1164.all;
+use ieee.std_logic_1164.all;a
 use ieee.std_logic_signed.all;
 use ieee.std_logic_arith.all;
 use work.in_out_matrix.all;

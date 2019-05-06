@@ -26,6 +26,7 @@ architecture test of multiplier_tb is
     signal w_imag_s			    : signed(15 downto 0);
     signal out_real_s		    : signed(15 downto 0);
     signal out_imag_s		    : signed(15 downto 0);
+    signal rst                  : std_logic; 
 
     begin
         multiplier_tb : entity work.multiplier(rtl) 
@@ -35,7 +36,8 @@ architecture test of multiplier_tb is
             w_real   => w_real_s,
             w_imag   => w_imag_s,
             out_real => out_real_s,
-            out_imag => out_imag_s
+            out_imag => out_imag_s,
+            rst_in   => rst
         );
     
     stim_proc : process

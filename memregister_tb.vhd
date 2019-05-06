@@ -14,9 +14,12 @@
 -- 1.0 - 2019-03-25 - Intial Version 
 -- 1.1 
 --------------------------------------------
-LIBRARY ieee;
-USE ieee.std_logic_1164.ALL;
+
+library ieee; 
+use ieee.std_logic_1164.all; 
 use ieee.numeric_std.all;
+use ieee.std_logic_signed.all; 
+use work.in_out_matrix.all; 
 
 ENTITY memregister_tb IS
 END memregister_tb;
@@ -36,11 +39,11 @@ ARCHITECTURE behavioral OF memregister_tb IS
  END COMPONENT;
  --Inputs
  signal clk_s    : std_logic ;
- signal DataIn_s : std_logic_vector(15 downto 0) ;
+ signal DataIn_s : signed(15 downto 0) ;
  signal rst_in_s : std_logic ;
 
  --Outputs
- signal DataOut_s : std_logic_vector(15 downto 0) ;
+ signal DataOut_s : signed(15 downto 0) ;
 
 BEGIN
 -- Instantiate the Unit Under Test (UUT)

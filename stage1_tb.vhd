@@ -21,8 +21,8 @@ end stage1_tb;
 
 architecture test of stage1_tb is 
   
-    signal real_in_s                : in_array(0 to 31); 
-    signal imag_in_s                : in_array(0 to 31); 
+    signal real_in_s                : out_array(0 to 31); 
+    signal imag_in_s                : out_array(0 to 31); 
     signal tf_real_s                  : tf_array(15 downto 0); 
     signal tf_imag_s                  : tf_array(15 downto 0); 
     signal real_out_s                 : out_array(0 to 31); 

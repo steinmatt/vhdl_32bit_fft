@@ -8,23 +8,22 @@
 -------------------------------------------
 
 
-library ieee;
-use ieee.std_logic_1164.all;
+
+library ieee; 
+use ieee.std_logic_1164.all; 
 use ieee.numeric_std.all;
-use ieee.std_logic_unsigned.all;
-use work.in_out_matrix.all;
+use ieee.std_logic_signed.all; 
+use work.in_out_matrix.all; 
 
 entity full_fft_tb is
 end full_fft_tb;
 
 architecture test of full_fft_tb is 
   
-    signal real_in_s                : in_array(0 to 31); 
-    signal imag_in_s                : in_array(0 to 31); 
-    signal tf_real_s                  : tf_array(15 downto 0); 
-    signal tf_imag_s                  : tf_array(15 downto 0); 
-    signal real_out_s                 : out_array(0 to 31); 
-    signal imag_out_s                 : out_array(0 to 31); 
+    signal real_in_s                : out_array(0 to 31); 
+    signal imag_in_s                : out_array(0 to 31); 
+    signal real_out_s               : out_array(0 to 31); 
+    signal imag_out_s               : out_array(0 to 31); 
     signal rst_s                    : std_logic; 
     -- Clocks 
     signal clk_s                    : std_logic; 
@@ -35,8 +34,6 @@ architecture test of full_fft_tb is
         port map(
             real_in => real_in_s, 
             imag_in => imag_in_s, 
-            tf_real => tf_real_s, 
-            tf_imag => tf_imag_s, 
             real_out => real_out_s, 
             imag_out => imag_out_s, 
             rst => rst_s, 
@@ -49,37 +46,30 @@ architecture test of full_fft_tb is
             wait for clock_period/2;
             clk_s <= '1';
             wait for clock_period/2;
-    end process;
+        end process;
     
     -- Note: One clock cycle is set to 10s, and each Single DFT block takes 2 clock cycles.
     -- Recall: Inputs must be constrained to a value only using 11 bits of the input (for growth) 
             -- Thus Inputs must be less than or equal to x"07ff" 
     stim_proc : process
         begin
-            wait for 120 ns;
             rst_s <= '1'; 
-            wait for 120 ns; 
+            wait for 100 ns; 
             rst_s <= '0'; 
-            wait for 120 ns; 
+            wait for 100 ns; 
 
-            -------------------------------------------------------------------------------------------
-            -- NOTE TWIDDLE FACTOR INPUTS MUST REMAIN CONSTANT // THESE ARE CORRECT TWIDDLE FACTORS USED IN OPERATION 
-            tf_real_s <=  ( x"7fff", x"7d8a", x"7641", x"6A6d", x"5B82", x"4721", x"30FB",
-             x"18F9", x"0000", x"E707", x"CF05", x"B8E4", x"A57E", x"9593", x"89BF", x"8279");
-            tf_imag_s <= ( x"0000", x"18F9", x"30FB", x"471C", x"5A82", x"6A6D", x"7641",
-             x"7D8A", x"7FFF", x"7D8A", x"7641", x"6A6D", x"5A82", x"471C", x"30FB", x"18F9");
             ------------------------------------------------------------------------------------------
-            real_in_s <= (x"0000",x"0001",x"0002",x"0003",x"0000",x"0001",x"0002",x"0003",
-            x"0000",x"0001",x"0002",x"0003",x"0000",x"0001",x"0002",x"0003",
-            x"0000",x"0001",x"0002",x"0003",x"0000",x"0001",x"0002",x"0003",
-            x"0000",x"0001",x"0002",x"0003",x"0000",x"0001",x"0002",x"0003");
+            real_in_s <= (x"0000",x"0001",x"0002",x"0003",x"0004",x"0005",x"0006",x"0007",
+            x"0008",x"0009",x"000a",x"000b",x"000c",x"000d",x"000e",x"000f",
+            x"0010",x"0011",x"0012",x"0013",x"0014",x"0015",x"0016",x"0017",
+            x"0018",x"0019",x"001a",x"001b",x"001c",x"001d",x"001e",x"001f");
 
-            imag_in_s <= (x"0000",x"0001",x"0002",x"0003",x"0000",x"0001",x"0002",x"0003",
-            x"0000",x"0001",x"0002",x"0003",x"0000",x"0001",x"0002",x"0003",
-            x"0000",x"0001",x"0002",x"0003",x"0000",x"0001",x"0002",x"0003",
-            x"0000",x"0001",x"0002",x"0003",x"0000",x"0001",x"0002",x"0003");
+            imag_in_s <= (x"0000",x"0000",x"0000",x"0000",x"0000",x"0000",x"0000",x"0000",
+            x"0000",x"0000",x"0000",x"0000",x"0000",x"0000",x"0000",x"0000",
+            x"0000",x"0000",x"0000",x"0000",x"0000",x"0000",x"0000",x"0000",
+            x"0000",x"0000",x"0000",x"0000",x"0000",x"0000",x"0000",x"0000");
 
-            wait for 120 ns;
+            wait for 100 ns;
             
             real_in_s <= (x"0000",x"0001",x"0000",x"0001",x"0000",x"0001",x"0000",x"0001",
             x"0000",x"0001",x"0000",x"0001", x"0000",x"0001",x"0000",x"0001",
@@ -91,9 +81,7 @@ architecture test of full_fft_tb is
             x"0000",x"0001",x"0000",x"0001", x"0000",x"0001",x"0000",x"0001",
             x"0000",x"0001",x"0000",x"0001", x"0000",x"0001",x"0000",x"0001");
             
-            wait for 120 ns;
-            rst_s <= '1'; 
-            wait for 120 ns; 
+            wait for 100 ns; 
 
             real_in_s <= (x"07ff",x"07ff",x"07ff",x"07ff",x"07ff",x"07ff",x"07ff",x"07ff",
             x"07ff",x"07ff",x"07ff",x"07ff", x"07ff",x"07ff",x"07ff",x"07ff",
@@ -104,10 +92,7 @@ architecture test of full_fft_tb is
             x"07ff",x"07ff",x"07ff",x"07ff", x"07ff",x"07ff",x"07ff",x"07ff",
             x"07ff",x"07ff",x"07ff",x"07ff", x"07ff",x"07ff",x"07ff",x"07ff",
             x"07ff",x"07ff",x"07ff",x"07ff", x"07ff",x"07ff",x"07ff",x"07ff");
-            wait for 120 ns; 
-            rst_s <= '0'; 
-            wait for 120 ns; 
-            
+            wait for 100 ns; 
 
         end process;
 

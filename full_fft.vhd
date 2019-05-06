@@ -18,8 +18,8 @@ use work.in_out_matrix.all;
 entity full_fft is
 	port (
 		-- Input Ports 
-		real_in                     : in in_array (0 to 31); 
-		imag_in                     : in in_array (0 to 31);
+		real_in                     : in out_array (0 to 31); 
+		imag_in                     : in out_array (0 to 31);
 		real_out                    : out out_array (0 to 31); 
 		imag_out                    : out out_array (0 to 31); 
 		-- Resets 
@@ -33,20 +33,20 @@ architecture structural of full_fft is
 	signal tf_real 					: tf_array(15 downto 0); 
 	signal tf_imag 					: tf_array(15 downto 0);
 
-	signal stage1_real_out			: in_array(0 to 31); 
-	signal stage1_imag_out			: in_array(0 to 31); 
+	signal stage1_real_out			: out_array(0 to 31); 
+	signal stage1_imag_out			: out_array(0 to 31); 
+   
+	signal stage2_real_out			: out_array(0 to 31); 
+	signal stage2_imag_out			: out_array(0 to 31); 
 
-	signal stage2_real_out			: in_array(0 to 31); 
-	signal stage2_imag_out			: in_array(0 to 31); 
-
-	signal stage3_real_out			: in_array(0 to 31); 
-	signal stage3_imag_out			: in_array(0 to 31); 
-
-	signal stage4_real_out			: in_array(0 to 31); 
-	signal stage4_imag_out			: in_array(0 to 31); 
-
-	signal stage5_real_out			: in_array(0 to 31); 
-	signal stage5_imag_out			: in_array(0 to 31); 
+	signal stage3_real_out			: out_array(0 to 31); 
+	signal stage3_imag_out			: out_array(0 to 31); 
+	
+	signal stage4_real_out			: out_array(0 to 31); 
+	signal stage4_imag_out			: out_array(0 to 31); 
+	 
+	signal stage5_real_out			: out_array(0 to 31); 
+	signal stage5_imag_out			: out_array(0 to 31); 
 
 begin
 
@@ -121,15 +121,18 @@ begin
 			clk => clk
 		);
 
-	sw1 : entity work.swapper(structural) 
+	real_sw1 : entity work.swapper(datapath) 
 		port map (	
-			real_in  => stage5_real_out, 
-			imag_in  => stage5_imag_out, 
-			real_out => real_out, 
-			imag_out => imag_out, 
-			-- Resets 
-			rst => rst, 
-			clk => clk
+			input_array  => stage5_real_out, 
+			out_array => real_out
+		
 		);
+		
+    imag_sw2 : entity work.swapper(datapath) 
+        port map (	
+            input_array  => stage5_imag_out, 
+            out_array => imag_out 
+        
+        );
 
 end structural;

@@ -35,8 +35,7 @@ signal twiddle_img_s          : tf_array(0 to 15);
     
     stim_proc : process
         begin
-             
-            wait for 20 ns;
+            
         end process;
     end;
 

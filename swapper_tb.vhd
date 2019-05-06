@@ -21,7 +21,7 @@ entity swapper_tb is
 end swapper_tb;
 
 architecture test of swapper_tb is 
-    signal input_array_s         : in_array(0 to 31);
+    signal input_array_s         : out_array(0 to 31);
     signal out_array_s           : out_array(0 to 31);
 
     begin
@@ -30,6 +30,7 @@ architecture test of swapper_tb is
             input_array  => input_array_s,
             out_array => out_array_s
         );
+    
     
     stim_proc : process
         begin
