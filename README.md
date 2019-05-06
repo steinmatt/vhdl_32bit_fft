@@ -28,5 +28,7 @@ Due to time constraints of the project, as of May 6th 2019, we were not able to 
 
 ## Project Contributions 
 **Matthew Stein:** Project Lead. Signed Bit Theory, Twiddle Factor Calculations, Adder Component, Overall Integration (Stage 1, Stage 2, Stage 3, Stage 4, Stage 5  Full FFT). Clock Cycle Implementation. Overall TYPE creation 
-**Ethan Tsao:** Multiplier Entity, Swapper Entity, Single_DFT Entity, Testing of Each Sub Component (to SIngle DFT Height). Signed Bit Theory. Clock Cycles. 
+
+**Ethan Tsao:** Multiplier Entity, Swapper Entity, Single_DFT Entity, Testing of Each Sub Component (to SIngle DFT Height). Signed Bit Theory. Clock Cycles.
+ 
 **Connor Cusi:** Subtractor Entity, Twiddle Factor Entity, Testing of Individual Stages, Converting Signed Numbers to Hex. 
