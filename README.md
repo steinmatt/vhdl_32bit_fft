@@ -1,4 +1,5 @@
-**ELEC 562, Loyola Marymount University, Student Project** BY: Matthew Stein, Ethan Tsao, Connor Cusi -- Spring 2019
+**ELEC 562, Loyola Marymount University, Student Project**
+    BY: Matthew Stein, Ethan Tsao, Connor Cusi -- Spring 2019
 
 # 32 BIT FFT 
 As the final project to ELEC 562, we've chosen to design and imlement a synthesizable 32 bit FFT using the Radix 2 DIF FFT algorithm. 
