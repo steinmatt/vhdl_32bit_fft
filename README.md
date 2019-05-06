@@ -16,3 +16,6 @@ When using the FFT, it is important to know the limitations. The FFT is designed
 
 ## Presentation
 A more detailed description of the FFT usage, structure, and challenges can [be found here](https://docs.google.com/presentation/d/1zDaqLjIscPPB6FKJwXMmuKW6hB6pETyi-cwqOc6wG8M/edit?usp=sharing)
+
+## Matlab Codes
+The Matlab Codes included in this repository were used to calculate the expected outputs of the FFT and the Twiddle Factors used. **The sdec2hex.m file is not our property, but rather the property of a Petri Vaisanen**. [The file was download from here](https://www.mathworks.com/matlabcentral/fileexchange/47001-sdec2hex-m). 
