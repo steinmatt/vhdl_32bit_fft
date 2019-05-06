@@ -1,20 +1,11 @@
 -------------------------------------------
 -- Project			: ELEC562 32 BIT FFT 
--- Author			: Connor Cusi
--- Date				: 2019-03-25
--- File				: subtractor_tb.vhd
--- Description		: This entity is the testbench for subtractor  
--- 
--- Inputs			: input_real_32a, input_img_32a -- single bit data 
--- 					 
--- Outputs			: output_top16, output_ 
--- 					: out_img_a, out_img_b -- output img
--- Reset			: Rst_in
---------------------------------------------
--- Version Control   
--- 1.0 - 2019-03-25 - Intial Version 
--- 1.1 - 2019-05-04 - Tentative Final Version 
---------------------------------------------
+-- Author			  : Connor Cusi
+-- Date				  : 2019-03-25
+-- File				  : subtractor_tb.vhd
+-- Description  : This entity is the testbench for subtractor  
+-------------------------------------------
+
 
 
 library ieee;

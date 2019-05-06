@@ -4,17 +4,8 @@
 -- Date				: 2019-03-25
 -- File				: Subtractor.vhd
 -- Description		: This entity is the memory storage for the  
--- 
--- Inputs			: real_a, real_b -- single bit data 
--- 					  img_a, img_b   -- single bit data 
--- Outputs			: out_real_a, out_real_b -- output real 
--- 					: out_img_a, out_img_b -- output img
--- Reset			: Rst_in
---------------------------------------------
--- Version Control   
--- 1.0 - 2019-03-25 - Intial Version 
--- 1.1 - 2019-05-04 - Successfully Tested 
---------------------------------------------
+-------------------------------------------
+
 
 library ieee;
 use ieee.std_logic_1164.all;

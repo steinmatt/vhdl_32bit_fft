@@ -1,10 +1,10 @@
 -------------------------------------------
 -- Project			: ELEC562 32 BIT FFT 
 -- Author			: Matthew Stein
--- Date				: 2019-04-26
+-- Tested By        : Matthew Stein & Ethan Tsao
+-- Date				: 2019-05-01
 -- File				: full_fft_tb.vhd
 -- Description		: Test bench for full_fft.  
--- 
 -------------------------------------------
 
 

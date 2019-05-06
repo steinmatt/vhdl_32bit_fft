@@ -1,19 +1,11 @@
 -------------------------------------------
 -- Project			: ELEC562 32 BIT FFT 
 -- Author			: Connor Cusi
+-- Tested By                : Connor Cusi 
 -- Date			: 2019-05-01
 -- File		       : memregister_tb.vhd
--- Description		: This entity is for testing memregister  
--- 
--- Outputs			: twiddle_real table for Real  
--- 					  twiddle_img table for Imaginary 
-
--- Reset			: Rst_in
---------------------------------------------
--- Version Control   
--- 1.0 - 2019-03-25 - Intial Version 
--- 1.1 
---------------------------------------------
+-- Description		: This entity acts as a testing file for memregister.vhd
+-------------------------------------------
 
 library ieee; 
 use ieee.std_logic_1164.all; 

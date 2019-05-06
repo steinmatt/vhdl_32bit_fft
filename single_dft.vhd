@@ -1,25 +1,14 @@
 --------------------------------------------------------------------------------
 -- Project			: ELEC562 32 BIT FFT 
--- Author			: 
+-- Author			: Ethan Tsao 
+-- Tested By        : Ethan Tsao
 -- Date				: 2019-04-03
 -- File				: single_dft.vhd
--- Description		: This entity is a single discrete operation, combining an
+-- Description		: This entity is a single discrete butterfly operation, combining an
 --                    adder, subtractor, and multiplier to perform a single stage 
 --                    of butterfly operation
--- Inputs			: real_a   -- real a, 8 bit data 
--- 					  real_b   -- real b, 8 bit data 
---                    imag_a   -- imag a, 8 bit data 
---                    imag_b   -- imag b, 8 bit data 
---                    tf_real -- twiddle factor real input, 
---                    tf_imag -- twiddle factor imag input, 
--- Outputs			: out_c   -- real output, single bit data  
--- 					: out_d   -- imag output, single bit data 
 --------------------------------------------------------------------------------
--- Version Control   
--- 1.0 - 2019-04-06 - Intial Version 
--- 1.1 - 2019-05-03 - Ready for testing
--- 1.2 - 2019-05-04 - Tested but not verified
---------------------------------------------------------------------------------
+
 
 library ieee; 
 use ieee.std_logic_1164.all; 

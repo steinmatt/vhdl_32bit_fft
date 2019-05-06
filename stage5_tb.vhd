@@ -1,11 +1,10 @@
 -------------------------------------------
 -- Project			: ELEC562 32 BIT FFT 
 -- Author			: Matthew Stein
--- Date				: 2019-04-22
+-- Date				: 2019-04-29
 -- File				: stage5_tb.vhd
 -- Description		: Test bench for stage5. 
 --                    Twiddle factors are assuemd to be accurate and included as inputs. 
--- 
 -------------------------------------------
 
 

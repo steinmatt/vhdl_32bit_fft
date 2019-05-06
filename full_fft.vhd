@@ -1,10 +1,10 @@
 -------------------------------------------
 -- Project			: ELEC562 32 BIT FFT 
 -- Author			: Matthew Stein 
--- Date				: 2019-03-25
+-- Date				: 2019-05-01
 -- File				: full_fft.vhd
--- Description		: This entity is the overall crossing during stage one. 
--- 					  The top 16 inputs are crossed with the bottom 16. 
+-- Description		: This entity is the overall crossing and implementation of each stage.  
+-- 					  The entity calls the twiddle, stages, and the swapper for proper output
 --------------------------------------------
 
 

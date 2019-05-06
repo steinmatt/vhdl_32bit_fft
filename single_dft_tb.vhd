@@ -1,11 +1,11 @@
 -------------------------------------------
 -- Project			: ELEC562 32 BIT FFT 
--- Author			: Matthew Stein
+-- Author			: Ethan Tsao
+-- Tested By        : Ethan Tsao
 -- Date				: 2019-04-22
 -- File				: single_dft_tb.vhd
--- Description		: Test bench for stage2. 
---                    Twiddle factors are assuemd to be accurate and included as inputs. 
--- 
+-- Description		: Test bench for single_dft 
+--                    Twiddle factors are assumed to be accurate and included as inputs. 
 -------------------------------------------
 
 

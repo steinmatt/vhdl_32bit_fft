@@ -5,7 +5,6 @@
 -- File				: stage4_tb.vhd
 -- Description		: Test bench for stage4. 
 --                    Twiddle factors are assuemd to be accurate and included as inputs. 
--- 
 -------------------------------------------
 
 

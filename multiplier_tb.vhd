@@ -4,13 +4,8 @@
 -- Date				: 2019-04-22
 -- File				: multiplier_tb.vhd
 -- Description		: Test bench for multiplier
--- 
 --------------------------------------------
--- Version Control   
--- 1.0 - 2019-04-22 - Intial (and final?) Version
--- 1.1 - 2019-04-29 - Changed data types to signed
--- 1.2 - 2019-05-04 - Tentative Final Version 
---------------------------------------------
+
 library ieee;
 use ieee.std_logic_1164.all;
 use ieee.numeric_std.all;

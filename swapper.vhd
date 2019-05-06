@@ -1,20 +1,12 @@
 -------------------------------------------
 -- Project			: ELEC562 32 BIT FFT 
 -- Author			: Ethan Tsao
+-- Tested By        : Ethan Tsao
 -- Date				: 2019-04-15
 -- File				: swapper.vhd
 -- Description		: Swapper used to reorder the output data stream at the end of the transform
--- 
--- Inputs			: input_array -- input array
---
--- Outputs			: output_array -- reordered output array
--- 
---------------------------------------------
--- Version Control   
--- 1.0 - 2019-04-15 - Initial version
--- 1.1 - 2019-04-22 - added array package
--- 1.2 - 2019-04-29 - Tentative Final Version
---------------------------------------------
+-------------------------------------------
+
 
 library ieee;
 use ieee.std_logic_1164.all;

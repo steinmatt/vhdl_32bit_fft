@@ -4,13 +4,8 @@
 -- Date				: 2019-05-01
 -- File				: Twiddle_tb.vhd
 -- Description		: testbench for Twiddle  
--- 
--- Reset			: Rst_in
---------------------------------------------
--- Version Control   
--- 1.0 - 2019-03-25 - Intial Version 
--- 1.1 
---------------------------------------------
+-------------------------------------------
+
 
 library ieee;
 use ieee.std_logic_1164.all;

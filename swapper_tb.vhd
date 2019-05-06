@@ -1,15 +1,12 @@
 -------------------------------------------
 -- Project			: ELEC562 32 BIT FFT 
 -- Author			: Ethan Tsao
+-- Tested By        : Ethan Tsao
 -- Date				: 2019-04-22
 -- File				: swapper_tb.vhd
--- Description		: Test bench for swapper
--- 
---------------------------------------------
--- Version Control   
--- 1.0 - 2019-04-28 - Intial Version 
--- 1.1 - 2019-04-29 - Tentative Final Version
---------------------------------------------
+-- Description		: Test bench for swapper.
+-------------------------------------------
+
 
 library ieee;
 use ieee.std_logic_1164.all;

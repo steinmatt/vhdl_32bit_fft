@@ -1,15 +1,10 @@
 -------------------------------------------
 -- Project			: ELEC562 32 BIT FFT 
--- Author			: Connor Cusi
--- Date				: 2019-03-25
--- File				: adder_tb.vhd
--- Description		: This entity is the testbench for adder  
--- 
--- Inputs			: input_real_32a, input_img_32a -- single bit data 
--- 					 
--- Outputs			: output_top16, output_ 
--- 					: out_img_a, out_img_b -- output img
--- Reset			: Rst_in
+-- Author			  : Matthew Stein
+-- Tested By    : Ethan Tsao
+-- Date				  : 2019-03-25
+-- File			   	: adder_tb.vhd
+-- Description  : This entity is the testbench for adder  
 --------------------------------------------
 -- Version Control   
 -- 1.0 - 2019-03-25 - Intial Version 
