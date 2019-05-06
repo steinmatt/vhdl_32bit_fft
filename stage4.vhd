@@ -13,7 +13,7 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.std_logic_unsigned.all;
 use ieee.std_logic_arith.all;
-use in_out_matrix.all; 
+use work.in_out_matrix.all; 
 
 
 entity stage4 is
@@ -57,9 +57,7 @@ begin
 	
 	g2: for i in 4 to 5 generate
 		a2 : entity work.single_dft(structural) 
-			generic map ( 
-				tprop => 3 ns
-			)
+
 			port map (	
 				
 				real_in(0)  => real_in(i), 

@@ -22,8 +22,8 @@ architecture test of stage2_tb is
   
     signal real_in_s                : in_array(0 to 31); 
     signal imag_in_s                : in_array(0 to 31); 
-    signal tf_real_s                  : tf_array(15 downto 0); 
-    signal tf_imag_s                  : tf_array(15 downto 0); 
+    signal tf_real_s                  : tf_array(0 to 15); 
+    signal tf_imag_s                  : tf_array(0 to 15); 
     signal real_out_s                 : out_array(0 to 31); 
     signal imag_out_s                 : out_array(0 to 31); 
     signal rst_s                    : std_logic; 
@@ -36,7 +36,7 @@ architecture test of stage2_tb is
         port map(
             real_in => real_in_s, 
             imag_in => imag_in_s, 
-            tf_real => imag_in_s, 
+            tf_real => tf_real_s, 
             tf_imag => tf_imag_s, 
             real_out => real_out_s, 
             imag_out => imag_out_s, 

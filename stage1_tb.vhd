@@ -23,10 +23,10 @@ architecture test of stage1_tb is
   
     signal real_in_s                : in_array(0 to 31); 
     signal imag_in_s                : in_array(0 to 31); 
-    signal tf_real                  : tf_array(15 downto 0); 
-    signal tf_imag                  : tf_array(15 downto 0); 
-    signal real_out                 : out_array(0 to 31); 
-    signal imag_out                 : out_array(0 to 31); 
+    signal tf_real_s                  : tf_array(15 downto 0); 
+    signal tf_imag_s                  : tf_array(15 downto 0); 
+    signal real_out_s                 : out_array(0 to 31); 
+    signal imag_out_s                 : out_array(0 to 31); 
     signal rst_s                    : std_logic; 
     -- Clocks 
     signal clk_s                    : std_logic; 
@@ -37,7 +37,7 @@ architecture test of stage1_tb is
         port map(
             real_in => real_in_s, 
             imag_in => imag_in_s, 
-            tf_real => imag_in_s, 
+            tf_real => tf_real_s, 
             tf_imag => tf_imag_s, 
             real_out => real_out_s, 
             imag_out => imag_out_s, 
@@ -81,7 +81,7 @@ architecture test of stage1_tb is
             x"0000",x"0001",x"0002",x"0003",x"0000",x"0001",x"0002",x"0003",
             x"0000",x"0001",x"0002",x"0003",x"0000",x"0001",x"0002",x"0003");
 
-            wait for 20 ns;
+            wait for 40 ns;
             
             real_in_s <= (x"0000",x"0001",x"0000",x"0001",x"0000",x"0001",x"0000",x"0001",
             x"0000",x"0001",x"0000",x"0001", x"0000",x"0001",x"0000",x"0001",
@@ -93,7 +93,7 @@ architecture test of stage1_tb is
             x"0000",x"0001",x"0000",x"0001", x"0000",x"0001",x"0000",x"0001",
             x"0000",x"0001",x"0000",x"0001", x"0000",x"0001",x"0000",x"0001");
             
-            wait for 20 ns;
+            wait for 40 ns;
             rst_s <= '1'; 
             wait for 20 ns; 
 
@@ -106,7 +106,7 @@ architecture test of stage1_tb is
             x"07ff",x"07ff",x"07ff",x"07ff", x"07ff",x"07ff",x"07ff",x"07ff",
             x"07ff",x"07ff",x"07ff",x"07ff", x"07ff",x"07ff",x"07ff",x"07ff",
             x"07ff",x"07ff",x"07ff",x"07ff", x"07ff",x"07ff",x"07ff",x"07ff");
-            wait for 20 ns; 
+            wait for 40 ns; 
             rst_s <= '0'; 
             wait for 20 ns; 
             

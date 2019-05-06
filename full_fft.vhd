@@ -53,7 +53,7 @@ begin
 	t1 : entity work.twiddle(datapath)
 		port map ( 
 			twiddle_real => tf_real, 
-			twiddle_iamg => tf_imag 
+			twiddle_img => tf_imag 
 		);
 
 	s1 : entity work.stage1(structural) 

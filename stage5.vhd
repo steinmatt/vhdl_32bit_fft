@@ -13,10 +13,10 @@ library ieee;
 use ieee.std_logic_1164.all;
 use ieee.std_logic_unsigned.all;
 use ieee.std_logic_arith.all;
-use in_out_matrix.all; 
+use work.in_out_matrix.all; 
 
 
-entity stage5_butterfly is
+entity stage5 is
 	port (
 		-- Input Ports 
 		real_in                     : in in_array (0 to 31); 
@@ -29,9 +29,9 @@ entity stage5_butterfly is
 		rst  			            : in std_logic; 
 		clk							: in std_logic 
 	); 
-end stage5_butterfly;
+end stage5;
 
-architecture structural of stage5_butterfly is
+architecture structural of stage5 is
 
     begin
 

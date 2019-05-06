@@ -37,9 +37,7 @@ begin
 		g1: for i in 0 to 7 generate
 
 			a1 : entity work.single_dft(structural) 
-				generic map ( 
-					tprop => 3 ns
-				)
+				
 				port map (	
 					
 					real_in(0) => real_in(i), 
@@ -61,9 +59,7 @@ begin
     	g2: for i in 16 to 23 generate
 
 			a2 : entity work.single_dft(structural) 
-				generic map ( 
-					tprop => 3 ns
-				)
+				
 				port map (	
 					
 					real_in(0) => real_in(i), 
