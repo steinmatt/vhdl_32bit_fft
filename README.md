@@ -19,3 +19,6 @@ A more detailed description of the FFT usage, structure, and challenges can [be 
 
 ## Matlab Codes
 The Matlab Codes included in this repository were used to calculate the expected outputs of the FFT and the Twiddle Factors used. **The sdec2hex.m file is not our property, but rather the property of a Petri Vaisanen**. [The file was download from here](https://www.mathworks.com/matlabcentral/fileexchange/47001-sdec2hex-m). 
+
+## Accuracy 
+Due to time constraints of the project, as of May 6th 2019, we were not able to test the accuracy of the final output of the FFT. 
