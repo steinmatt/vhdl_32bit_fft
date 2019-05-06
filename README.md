@@ -14,6 +14,9 @@ In order to properly understand the Radix 2 Algorithm and the algorithm's implem
 ## Usage Guidelines
 When using the FFT, it is important to know the limitations. The FFT is designed as a 32 bit input, where each input is a signed vector. The signed vectors represent a series of numbers between 1 and -1. Though represented in 16 bits, the input range is that an 11 bit integer, thus the range of inputs falls from [-2047, 2047]. 
 
+## Clock Signals 
+The FFT is synthesizable and runs on a clock cycle due to two registers added to each output line in the Single DFT Entity. The Single DFT is used in each stage of the Full_FFT and thus creates a clock cycle for the program at large. 
+
 ## Presentation
 A more detailed description of the FFT usage, structure, and challenges can [be found here](https://docs.google.com/presentation/d/1zDaqLjIscPPB6FKJwXMmuKW6hB6pETyi-cwqOc6wG8M/edit?usp=sharing)
 
@@ -22,3 +25,8 @@ The Matlab Codes included in this repository were used to calculate the expected
 
 ## Accuracy 
 Due to time constraints of the project, as of May 6th 2019, we were not able to test the accuracy of the final output of the FFT. 
+
+## Project Contributions 
+**Matthew Stein:** Project Lead. Signed Bit Theory, Twiddle Factor Calculations, Adder Component, Overall Integration (Stage 1, Stage 2, Stage 3, Stage 4, Stage 5  Full FFT). Clock Cycle Implementation. Overall TYPE creation 
+**Ethan Tsao:** Multiplier Entity, Swapper Entity, Single_DFT Entity, Testing of Each Sub Component (to SIngle DFT Height). Signed Bit Theory. Clock Cycles. 
+**Connor Cusi:** Subtractor Entity, Twiddle Factor Entity, Testing of Individual Stages, Converting Signed Numbers to Hex. 
