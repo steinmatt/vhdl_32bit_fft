@@ -1,4 +1,5 @@
 **ELEC 562, Loyola Marymount University, Student Project**
+
     BY: Matthew Stein, Ethan Tsao, Connor Cusi -- Spring 2019
 
 # 32 BIT FFT 
